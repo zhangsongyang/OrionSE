@@ -7,6 +7,7 @@ public class App extends KeygenSingIdea
         System.out.println( "Hello World!" );
         System.out.println( "Hello World!" );
         System.out.println("");
+        System.out.println("Test github");
 
     }
 
