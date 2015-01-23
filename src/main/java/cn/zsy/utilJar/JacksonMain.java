@@ -138,7 +138,7 @@ public class JacksonMain {
         g.writeStringField("gender", "333");
         g.writeBooleanField("verified", false);
         g.writeFieldName("userImage"); // no 'writeBinaryField' (yet?)
-        byte[] binaryData = "Foobar!".getBytes();
+        byte[] binaryData = "Foobar!".getBytes("utf-8");
         g.writeBinary(binaryData);
         g.writeFieldName("bababa");
 //        g.writeString("xieshihui");
