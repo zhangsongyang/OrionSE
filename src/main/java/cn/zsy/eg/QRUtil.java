@@ -278,14 +278,23 @@ public class QRUtil {
 
         /**部分一开始***********生成常规二维码*************/
         //二维码内容
-        String content = "张松杨 15109218909 \n 人生总是很累，你现在不累，以后会更累。";
+//        String content = "张松杨 15109218909 \n 人生总是很累，你现在不累，以后会更累。";
+//        String content = "我爱你\n你是我的七十亿分之一\n张松杨&谢世会";
+//        String content = "一生太短\n这一生都对你一心一意的就够了";
+//        String content = "我知道异地恋很辛苦\n是你一生的赌注\n我怎么舍得让你输";
+//        String content = "我喜欢吃醋并不是因为我不相信你\n而是因为我真的太爱你";
+//        String content = "自从遇见你，我变成了福尔摩斯\n不放过任何你的蛛丝马迹";
+//        String content = "我只有做一件事的时候才会想你\n那就是呼吸 ";
+//        String content = "换我一生的荣耀\n让我陪你到天荒地老";
+//        String content = "我只有一个小小的愿望\n生命中永远有你";
+        String content = "我每天都会对你说出\n世界上最温暖的两个字~晚安~";
 //	String content = "张松杨 15109218909"; 
         //二维码宽度
         int width = 300;
         //二维码高度
         int height = 300;
         //二维码存放地址
-        String imagePath = "d:/qr/thatway_weibo.png";
+        String imagePath = "d:/qr/xieshihui.png";
         //生成二维码,返回的是生成好的二维码图片的所在路径
         String qrImgPath = QRUtil.encode(content, width, height, imagePath);
         /**部分一结束***********如果生成不带图片的二维码，到这步已经完成了*************/
@@ -294,7 +303,7 @@ public class QRUtil {
         /**部分二开始***********如果生成带图片但图片不带边框的二维码，解开这部分注释*************/
 
         //缩放水印图片,为保证二维码的读取正确，图片不超过二维码图片的五分之一，这里设为六分之一
-        String waterImgPath = QRUtil.resizeImg("d:/qr/1212.jpg", width / 6, height / 6, true);
+        String waterImgPath = QRUtil.resizeImg("d:/qr/xie_qq.jpg", width / 6, height / 6, true);
 //  
 //  //生成带有图片的二维码，返回的是生成好的二维码图片的所在路径
         String qrImage = QRUtil.addImageWater(qrImgPath, waterImgPath, "xsh");
