@@ -1,4 +1,4 @@
-package cn.zsy.eg;
+package cn.zsy.eg.QRCode;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;

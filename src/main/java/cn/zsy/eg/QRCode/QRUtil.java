@@ -1,4 +1,4 @@
-package cn.zsy.eg;
+package cn.zsy.eg.QRCode;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;
@@ -261,7 +261,7 @@ public class QRUtil {
             int bgHeight = height + 4;
 
             String now = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-            borderImgPath = QRUtil.addImageWater(QRUtil.resizeImg(bgImgPath, bgHeight, bgWidth, true), mainImgPath, now);
+            borderImgPath = QRUtil.addImageWater(resizeImg(bgImgPath, bgHeight, bgWidth, true), mainImgPath, now);
 
             if (f.exists()) {
                 f.delete();
@@ -296,17 +296,17 @@ public class QRUtil {
         //二维码存放地址
         String imagePath = "d:/qr/xieshihui.png";
         //生成二维码,返回的是生成好的二维码图片的所在路径
-        String qrImgPath = QRUtil.encode(content, width, height, imagePath);
+        String qrImgPath = encode(content, width, height, imagePath);
         /**部分一结束***********如果生成不带图片的二维码，到这步已经完成了*************/
 
 
         /**部分二开始***********如果生成带图片但图片不带边框的二维码，解开这部分注释*************/
 
         //缩放水印图片,为保证二维码的读取正确，图片不超过二维码图片的五分之一，这里设为六分之一
-        String waterImgPath = QRUtil.resizeImg("d:/qr/xie_qq.jpg", width / 6, height / 6, true);
+        String waterImgPath = resizeImg("d:/qr/xie_qq.jpg", width / 6, height / 6, true);
 //  
 //  //生成带有图片的二维码，返回的是生成好的二维码图片的所在路径
-        String qrImage = QRUtil.addImageWater(qrImgPath, waterImgPath, "xsh");
+        String qrImage = addImageWater(qrImgPath, waterImgPath, "xsh");
 //  String qrImage = QRUtil.addImageWater(qrImgPath, waterImgPath, null);
 
 
