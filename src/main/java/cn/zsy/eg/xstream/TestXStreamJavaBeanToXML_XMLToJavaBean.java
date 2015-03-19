@@ -6,7 +6,7 @@ import com.thoughtworks.xstream.XStream;
 
 import java.util.ArrayList;
 
-public class TestXStream {
+public class TestXStreamJavaBeanToXML_XMLToJavaBean {
 
     public static void main(String[] args) {
         DiskInfo disk1 = new DiskInfo();
