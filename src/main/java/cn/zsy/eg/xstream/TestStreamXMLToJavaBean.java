@@ -1,6 +1,7 @@
 package cn.zsy.eg.xstream;
 
 import cn.zsy.eg.xstream.bean.SyncAppOrderReq;
+import cn.zsy.eg.xstream.bean.SyncAppOrderResp;
 import com.thoughtworks.xstream.XStream;
 
 public class TestStreamXMLToJavaBean {
@@ -44,8 +45,23 @@ public class TestStreamXMLToJavaBean {
         String javaToXML = xStream.toXML(syncAppOrderReq);   //这个在从xml到java Bean时候不能少，少了就会报异常，尽管这个方法作用是javaBean到xml, 这里我推测这个方便有将xml和bean映射作用
         System.out.println(javaToXML);
         System.out.println("---------");
+        xStream.setClassLoader(SyncAppOrderReq.class.getClassLoader());
         SyncAppOrderReq readObject = (SyncAppOrderReq) xStream.fromXML(xml);
         System.out.println("Object loaded by xstream:\n " + readObject);
+        System.out.println("---------");
+
+
+        SyncAppOrderResp syncAppOrderResp = new SyncAppOrderResp();
+        syncAppOrderResp.setTransactionID(readObject.getTransactionID());
+        syncAppOrderResp.setXmlns(readObject.getXmlns());
+        syncAppOrderResp.setMsgType("SyncAppOrderResp");
+        syncAppOrderResp.setVersion("1.0.0");
+        syncAppOrderResp.sethRet(0);
+        syncAppOrderResp.setXmlns("http://www.monternet.com/dsmp/schemas/");
+        String xmlcc = xStream.toXML(syncAppOrderResp);
+        xmlcc = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + xmlcc;
+        System.out.println(xmlcc);
+
 
     }
 

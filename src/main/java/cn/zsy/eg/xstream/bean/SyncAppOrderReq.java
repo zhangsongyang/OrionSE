@@ -90,6 +90,14 @@ public class SyncAppOrderReq implements Serializable {
 	@XStreamAlias("MD5Sign")
 	private String md5Sign; // 32位大写MD5
 
+	public String getXmlns() {
+		return xmlns;
+	}
+
+	public void setXmlns(String xmlns) {
+		this.xmlns = xmlns;
+	}
+
 	public String getTransactionID() {
 		return transactionID;
 	}

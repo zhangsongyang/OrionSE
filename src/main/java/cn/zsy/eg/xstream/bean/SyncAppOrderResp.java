@@ -28,6 +28,14 @@ public class SyncAppOrderResp implements Serializable {
 	@XStreamAlias("hRet")
 	private Integer hRet;//返回值
 
+	public String getXmlns() {
+		return xmlns;
+	}
+
+	public void setXmlns(String xmlns) {
+		this.xmlns = xmlns;
+	}
+
 	public String getTransactionID() {
 		return transactionID;
 	}
