@@ -18,6 +18,7 @@
         <slf4j.version>1.6.0</slf4j.version>
         <json.version>2.4</json.version>
         <xstream.version>1.4.3</xstream.version>
+        <jedis.version>2.7.2</jedis.version>
     </properties>
 
     <repositories>
@@ -158,6 +159,12 @@
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
             <version>${xstream.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
         </dependency>
 
     </dependencies>
