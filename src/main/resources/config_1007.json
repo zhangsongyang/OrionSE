@@ -1,0 +1,28 @@
+{
+  "MUSIC8014BCS6": {
+    "1.0.1.1003": {
+      "kDefX64Url_1": "http://wa.kuwo.cn/lyrics/img/kwgg/bigdata/1.0.1.1003/KwShellExtDllx.dll",
+      "kDefX64DllMd5_1": "f6177186ed8a1fc54d4a57ba22c81072",
+      "kDefX86Url_1": "http://wa.kuwo.cn/lyrics/img/kwgg/bigdata/1.0.1.1003/KwShellExtDll.dll",
+      "kDefX86DllMd5_1": "3a322282551cd1c043e6b879e84fd517",
+      "kDefDllVersion_1": "1.0.1.1003",
+      "kDefModelName": "CoreModule.dll",
+      "kDefModelUrl_1": "http://wa.kuwo.cn/lyrics/img/kwgg/bigdata/1.0.1.1003/KwTaskService.dll",
+      "kDefModelMd5_1": "8c601bce3182de4e643e353d3fdad154",
+      "kDefModelVersion_1": "1.0.1.1003"
+    }
+  },
+  "MUSIC8014BCS7": {
+    "1.0.1.1003": {
+      "kDefX64Url_1": "http://wa.kuwo.cn/lyrics/img/kwgg/bigdata/1.0.1.1003/KwShellExtDllx.dll",
+      "kDefX64DllMd5_1": "f6177186ed8a1fc54d4a57ba22c81072",
+      "kDefX86Url_1": "http://wa.kuwo.cn/lyrics/img/kwgg/bigdata/1.0.1.1003/KwShellExtDll.dll",
+      "kDefX86DllMd5_1": "3a322282551cd1c043e6b879e84fd517",
+      "kDefDllVersion_1": "1.0.1.1003",
+      "kDefModelName": "CoreModule.dll",
+      "kDefModelUrl_1": "http://wa.kuwo.cn/lyrics/img/kwgg/bigdata/1.0.1.1003/KwTaskService.dll",
+      "kDefModelMd5_1": "8c601bce3182de4e643e353d3fdad154",
+      "kDefModelVersion_1": "1.0.1.1003"
+    }
+  }
+}
