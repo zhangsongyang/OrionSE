@@ -48,7 +48,7 @@ public class TestStreamXMLToJavaBean {
         xStream.setClassLoader(SyncAppOrderReq.class.getClassLoader());
         SyncAppOrderReq readObject = (SyncAppOrderReq) xStream.fromXML(xml);
         System.out.println("Object loaded by xstream:\n " + readObject);
-        System.out.println("---------");
+        System.out.println("--------------------------------------------------");
 
 
         SyncAppOrderResp syncAppOrderResp = new SyncAppOrderResp();
