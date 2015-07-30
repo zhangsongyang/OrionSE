@@ -2,19 +2,11 @@ package cn.zsy;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
-import cn.zsy.util.Config;
-import cn.zsy.util.HttpUtil;
-import cn.zsy.util.MD5;
 import cn.zsy.util.MessageSender;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
-import org.dom4j.Document;
-import org.dom4j.DocumentHelper;
-import org.dom4j.Element;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
