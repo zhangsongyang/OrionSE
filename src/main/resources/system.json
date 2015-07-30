@@ -1,0 +1,12 @@
+{
+     // HttpUtil properties
+	"BK_SOCKET_CONNECT_TIMEOUT":3210,
+	"BK_SOCKET_READ_TIMEOUT":3000,
+
+	 // sendMessage properties
+	"MSG_CPID" : "010001000228",
+	"MSG_MID" : "0",
+	"MSG_PORT" : "170898",
+	"MSG_GATEWAY":"http://api.10690909.com/newmt"
+	
+}
