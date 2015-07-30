@@ -1,18 +1,14 @@
-package cn.zsy;
+package cn.zsy.util;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import cn.zsy.util.Config;
-import cn.zsy.util.HttpUtil;
-import cn.zsy.util.MD5;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-import org.junit.Test;
-import sun.applet.Main;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MessageSender {
 
@@ -24,10 +20,8 @@ public class MessageSender {
 	"MSG_GATEWAY":"http://api.10690909.com/newmt",
 	"REDIS_SERVER":"192.168.210.76:6379"
 	*/
+	private static Logger logger = LoggerFactory.getLogger(MessageSender.class);
 
-
-	private static Logger logger = Logger.getLogger(MessageSender.class);
-	
 	/**
 	 * 新版发送短信接口
 	 * @param phonenum
@@ -49,7 +43,7 @@ public class MessageSender {
 			MD5 md5 = new MD5();
 
 			String passwrord =  md5.getMD5ofStr("720d44817e9a9b848fc48e423e368cc5"+t, "UTF-8");
-			msg = msg+"&【ZSY】";
+			msg = msg+"【酷我】";
 			//生成XML
 			Document document = DocumentHelper.createDocument();
 			Element root = document.addElement("MtPacket");
@@ -65,13 +59,13 @@ public class MessageSender {
 			root.addElement("validtime").setText("0");
 			//发送post请求
 			content =  document.asXML();
-			String ret = HttpUtil.getHttpUrlContent(Config.MSG_GATEWAY, "UTF-8", true, content, 0);
+			String ret = HttpUtil.getHttpUrlContent(Config.MSG_GATEWAY, "UTF-8", true, content, 8000);
 			//解析返回的XML
 			Document doc = null;
 			doc = DocumentHelper.parseText(ret);
 			result = doc.getRootElement().element("result").getText();
 		} catch (Exception e) {
-			logger.error(e, e);
+			logger.error(e.toString(), e);
 			result = "server error";
 		} finally {
 			logger.info(String.format("sendmsg\t%s\t%s\t%s\t%s", Config.MSG_GATEWAY, result, (System.currentTimeMillis() - startTime), content));
@@ -79,8 +73,5 @@ public class MessageSender {
 		return result;
 	}
 
-	@Test
-	public void sendmess(){
-		sendPhoneMsg("15109218909", "Test");
-	}
+
 }
