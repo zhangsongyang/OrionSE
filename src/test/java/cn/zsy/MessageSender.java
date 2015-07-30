@@ -49,7 +49,7 @@ public class MessageSender {
 			MD5 md5 = new MD5();
 
 			String passwrord =  md5.getMD5ofStr("720d44817e9a9b848fc48e423e368cc5"+t, "UTF-8");
-			msg = msg+"&【酷我】";
+			msg = msg+"&【ZSY】";
 			//生成XML
 			Document document = DocumentHelper.createDocument();
 			Element root = document.addElement("MtPacket");
