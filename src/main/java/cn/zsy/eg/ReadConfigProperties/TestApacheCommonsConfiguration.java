@@ -13,9 +13,11 @@ public class TestApacheCommonsConfiguration {
         String ip = config.getString("kDefDllVersion");
         int inttest = config.getInt("inttest");
         String zhtest = config.getString("cn");
+        String cndurl = config.getString("CNDURL");
         System.out.println(ip);
         System.out.println(inttest);
         System.out.println(zhtest);
+        System.out.println(cndurl);
 
 
 
