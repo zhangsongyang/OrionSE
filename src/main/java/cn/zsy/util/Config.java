@@ -14,9 +14,9 @@ public class Config {
 	public static int BK_SOCKET_READ_TIMEOUT = 3000;
 	
 	//发送短信相关配置
-	public static String MSG_CPID;
-	public static String MSG_MID;
-	public static String MSG_PORT;
-	public static String MSG_GATEWAY;
+	public static String MSG_CPID = "010001000228";
+	public static String MSG_MID =  "0";
+	public static String MSG_PORT = "170898";
+	public static String MSG_GATEWAY = "http://api.10690909.com/newmt";
 
 }
