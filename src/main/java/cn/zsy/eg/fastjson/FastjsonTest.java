@@ -3,9 +3,12 @@ package cn.zsy.eg.fastjson;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FastjsonTest {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String test = "{\n" +
                 "  \"MUSIC8014BCS6\": {\n" +
                 "    \"1.0.1.1003\": {\n" +
@@ -59,6 +62,11 @@ public class FastjsonTest {
         JSONObject jsonObject = JSON.parseObject(test);
         System.out.println(jsonObject.keySet().toString());
 //        System.out.println(jsonObject.getJSONObject("MUSIC8014BCS6").getJSONObject("1.0.1.1003").getString("kDefModelUrl_1"));
+
+        Map<String, String[]> params = new HashMap<String, String[]>();
+        String[] ss = {"11", "22", "33"};
+        params.put("aa", ss);
+        System.out.println(JSON.toJSONString(params)); //将一个map转化为jsonString
     }
 
 }
