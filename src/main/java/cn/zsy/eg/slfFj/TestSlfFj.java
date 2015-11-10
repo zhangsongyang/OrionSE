@@ -14,6 +14,7 @@ public class TestSlfFj {
         logger.warn("This is warn message");
         logger.error("This is error message");
         logger.info("{} is {}", new String[]{"x","y"});
+        logger.info("{1,2} is {}", "2");
     }
 
 }
