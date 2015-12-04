@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userBean" class="cn.zsy.eg.spring.beans.UserBean">
+        <property name="name" value="zhangsongyayng"/>
+        <property name="sex" value="nan"/>
+        <property name="school" value="beijing"/>
+        <property name="old" value="27"/>
+        <property name="course">
+            <map>
+                <entry key="english" value="100"/>
+                <entry key="computer" value="99"/>
+                <entry key="science" value="100"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>
