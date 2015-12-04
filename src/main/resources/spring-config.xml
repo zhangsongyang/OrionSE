@@ -16,4 +16,11 @@
         </property>
     </bean>
 
+    <bean id="userBean1" class="cn.zsy.eg.spring.beans.UserBean">
+        <constructor-arg index="0" value="xieshihui"/>
+        <constructor-arg index="1" value="nv"/>
+        <constructor-arg index="2" value="xian"/>
+        <constructor-arg index="3" value="26"/>
+    </bean>
+
 </beans>
