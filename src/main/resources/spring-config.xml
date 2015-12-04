@@ -1,9 +1,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:configTest.properties"/>
+    <!--<context:property-override location="classpath:configTest.properties"/>-->
 
     <bean id="userBean" class="cn.zsy.eg.spring.beans.UserBean">
-        <property name="name" value="zhangsongyayng"/>
+        <property name="name" value="${user}"/>
         <property name="sex" value="nan"/>
         <property name="school" value="beijing"/>
         <property name="old" value="27"/>
