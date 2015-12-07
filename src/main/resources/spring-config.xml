@@ -1,24 +1,37 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
 
     <context:property-placeholder location="classpath:configTest.properties"/>
     <!--<context:property-override location="classpath:configTest.properties"/>-->
+
+    <util:map id="courses">
+        <entry key="english" value="100"/>
+        <entry key="computer" value="99"/>
+        <entry key="science" value="100"/>
+    </util:map>
 
     <bean id="userBean" class="cn.zsy.eg.spring.beans.UserBean">
         <property name="name" value="${user}"/>
         <property name="sex" value="nan"/>
         <property name="school" value="beijing"/>
         <property name="old" value="27"/>
-        <property name="course">
-            <map>
-                <entry key="english" value="100"/>
-                <entry key="computer" value="99"/>
-                <entry key="science" value="100"/>
-            </map>
-        </property>
+        <property name="course" ref="courses"/>
     </bean>
+
+    <bean id="userBean12" class="cn.zsy.eg.spring.beans.UserBean" p:name="xieshihuilove" p:sex="nan" p:school="lllllll"
+          p:old="11" p:course-ref="courses"/>
+
+    <bean id="userBean13" class="cn.zsy.eg.spring.beans.UserBean" p:name="xieshihuilove" p:sex="nan" p:school="lllllll"
+          p:old="111" p:course-ref="courses" depends-on="courses"/>
 
     <bean id="userBean1" class="cn.zsy.eg.spring.beans.UserBean">
         <constructor-arg index="0" value="xieshihui"/>
@@ -26,5 +39,9 @@
         <constructor-arg index="2" value="xian"/>
         <constructor-arg index="3" value="26"/>
     </bean>
+
+    <bean id="car" class="cn.zsy.eg.spring.beans.Car" p:colord="red" p:number="0000"/>
+
+    <bean id="person" class="cn.zsy.eg.spring.beans.Person" p:name="qq" p:sex="33" p:car-ref="car" depends-on="car"/>
 
 </beans>
