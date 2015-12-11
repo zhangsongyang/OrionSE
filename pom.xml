@@ -245,6 +245,13 @@
             <version>5.1.36</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
+        </dependency>
+
+
 
 
     </dependencies>
