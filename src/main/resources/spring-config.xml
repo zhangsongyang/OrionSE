@@ -42,14 +42,17 @@
 
     <bean id="car" class="cn.zsy.eg.spring.beans.Car" p:colord="red" p:number="0000"/>
 
-    <bean id="person" class="cn.zsy.eg.spring.beans.Person" p:name="#{'redwwww'}" p:sex="#{T(java.lang.Math).PI}"
+    <bean id="person" class="cn.zsy.eg.spring.beans.Person" p:name="#{'redwwww1'}" p:sex="#{T(java.lang.Math).PI}"
           p:car-ref="car"
           depends-on="car"/>
 
     <bean id="person1" class="cn.zsy.eg.spring.beans.Person">
-        <property name="name" value="#{'www'}"/>
+        <property name="name" value="#{'www2'}"/>
         <property name="sex" value="#{userBean.sex}"/>
         <property name="car" value="#{car}"/>
     </bean>
+
+    <!-- 后置处理器BeanPostProcessor -->
+    <bean class="cn.zsy.eg.spring.MyBeanPostProcessor"></bean>
 
 </beans>

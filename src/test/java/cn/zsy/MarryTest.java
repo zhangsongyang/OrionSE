@@ -39,6 +39,11 @@ public class MarryTest {
     public void marry3() {
         long s = 11L;
         System.out.println("asdfsdf" + s);
+        String USER_HOME = System.getProperty("user.home");
+        System.out.println(USER_HOME);
+        ThreadLocal<MarryTest> t = new ThreadLocal<MarryTest>();
+        System.out.println(t.get());
     }
+
 
 }

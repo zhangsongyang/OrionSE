@@ -14,12 +14,15 @@ public class UserTest {
 //        System.out.println(user);
 //        UserBean userBean1 = context.getBean("userBean13", UserBean.class);
 //        System.out.println(userBean1.toString());
-        Person person = context.getBean("person", Person.class);
-        System.out.println("---------------person-----------------");
-        System.out.println(person.toString());
+//        Person person = context.getBean("person", Person.class);
+//        System.out.println("---------------person-----------------");
+//        System.out.println(person.toString());
         Person person1 = context.getBean("person1", Person.class);
         System.out.println("---------------person1-----------------");
         System.out.println(person1.toString());
+        Person person2 = context.getBean("person", Person.class);
+        System.out.println("---------------person2-----------------");
+        System.out.println(person2.toString());
 
     }
 
