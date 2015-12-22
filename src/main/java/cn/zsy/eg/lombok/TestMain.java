@@ -18,3 +18,7 @@ public class TestMain {
     }
 
 }
+
+//    protected boolean canEqual(Object other) {
+//          return other instanceof DataExample;
+//    }
