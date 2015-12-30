@@ -1,8 +1,11 @@
 package cn.zsy;
 
+import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 import java.util.UUID;
 
 public class MarryTest {
@@ -43,6 +46,21 @@ public class MarryTest {
         System.out.println(USER_HOME);
         ThreadLocal<MarryTest> t = new ThreadLocal<MarryTest>();
         System.out.println(t.get());
+        Set<String> set = new HashSet<String>();
+        System.out.println(set.toString());
+    }
+
+    @Test
+    public void marry4() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("aa", "asdfasdf");
+        jsonObject.put("bb", "a222222222");
+        System.out.println(jsonObject.toJSONString());
+
+        System.out.println(jsonObject.keySet().toString());
+        if(jsonObject.keySet().contains("bbv")){
+            System.out.println(jsonObject.get("bb"));
+        }
     }
 
 
