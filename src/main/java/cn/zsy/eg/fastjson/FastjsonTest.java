@@ -1,6 +1,7 @@
 package cn.zsy.eg.fastjson;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.HashMap;
@@ -62,6 +63,14 @@ public class FastjsonTest {
         JSONObject jsonObject = JSON.parseObject(test);
         System.out.println(jsonObject.keySet().toString());
 //        System.out.println(jsonObject.getJSONObject("MUSIC8014BCS6").getJSONObject("1.0.1.1003").getString("kDefModelUrl_1"));
+        JSONArray jsonArray = new JSONArray();
+        jsonArray.add("asdfsadf");
+        jsonArray.add("asdfsadw");
+        jsonArray.add("asdfsade");
+        jsonArray.add("asdfsadr");
+        jsonArray.add("asdfsadtt");
+        System.out.println(jsonArray.toString());
+        System.out.println(jsonArray.getString(2));
 
         Map<String, String[]> params = new HashMap<String, String[]>();
         String[] ss = {"11", "22", "33"};
