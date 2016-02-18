@@ -1,0 +1,1 @@
+mysql --socket=/tmp/mysql3.sock  -D resource_music --skip-column-names --local-infile=1 -e "set @BH_REJECT_FILE_PATH = '/tmp/musica.txt';set @BH_ABORT_ON_THRESHOLD = 0.03;LOAD DATA LOCAL INFILE '/tmp/t_kuwo_music_tag_NewMusicLabel.txt' INTO TABLE tag_genre_music fields terminated by '\t';"
