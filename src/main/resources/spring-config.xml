@@ -27,6 +27,9 @@
         <property name="course" ref="courses"/>
     </bean>
 
+    <!-- spring工具类 方便在非spring管理环境中获取bean -->
+    <bean id="springUtils" class="cn.zsy.eg.spring.SpringUtils"/>
+
     <bean id="userBean12" class="cn.zsy.eg.spring.beans.UserBean" p:name="xieshihuilove" p:sex="nan" p:school="lllllll"
           p:old="11" p:course-ref="courses"/>
 

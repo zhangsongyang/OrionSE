@@ -23,7 +23,9 @@ public class UserTest {
         Person person2 = context.getBean("person", Person.class);
         System.out.println("---------------person2-----------------");
         System.out.println(person2.toString());
-
+        UserBean userBean = SpringUtils.getBean("userBean1");
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println(userBean.toString());
     }
 
 
