@@ -1,69 +1,72 @@
 package cn.zsy.eg.activeMQ;
 
 
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
 import javax.jms.DeliveryMode;
-import javax.jms.Destination;
-import javax.jms.MessageProducer;
+import javax.jms.MapMessage;
+import javax.jms.Queue;
+import javax.jms.QueueConnection;
+import javax.jms.QueueConnectionFactory;
+import javax.jms.QueueSession;
 import javax.jms.Session;
-import javax.jms.TextMessage;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 /**
- * <b>function:</b> 消息发送者
- * 使用JMS方式发送接收消息
+ * <b>function:</b> Queue 方式消息发送者
+ * Queue队列方式发送点对点消息数据
  *
- * @file MessageSender.java
+ * @file QueueSender.java
  */
-public class MessageSender {
+public class QueueSender {
 
     // 发送次数
     public static final int SEND_NUM = 5;
     // tcp 地址
     public static final String BROKER_URL = "tcp://localhost:61616";
     // 目标，在ActiveMQ管理员控制台创建 http://localhost:8161/admin/queues.jsp
-    public static final String DESTINATION = "hoopc.mq.queue";
+    public static final String DESTINATION = "hoo.mq.queue";
 
     /**
      * <b>function:</b> 发送消息
      *
      * @param session
-     * @param producer
+     * @param sender
      * @throws Exception
      */
-    public static void sendMessage(Session session, MessageProducer producer) throws Exception {
+    public static void sendMessage(QueueSession session, javax.jms.QueueSender sender) throws Exception {
         for (int i = 0; i < SEND_NUM; i++) {
             String message = "发送消息第" + (i + 1) + "条";
-            TextMessage text = session.createTextMessage(message);
 
-            System.out.println(message);
-            producer.send(text);
+            MapMessage map = session.createMapMessage();
+            map.setString("text", message);
+            map.setLong("time", System.currentTimeMillis());
+            System.out.println(map);
+
+            sender.send(map);
         }
     }
 
     public static void run() throws Exception {
 
-        Connection connection = null;
-        Session session = null;
+        QueueConnection connection = null;
+        QueueSession session = null;
         try {
             // 创建链接工厂
-            ConnectionFactory factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_USER, ActiveMQConnection.DEFAULT_PASSWORD, BROKER_URL);
+            QueueConnectionFactory factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_USER, ActiveMQConnection.DEFAULT_PASSWORD, BROKER_URL);
             // 通过工厂创建一个连接
-            connection = factory.createConnection();
+            connection = factory.createQueueConnection();
             // 启动连接
             connection.start();
             // 创建一个session会话
-            session = connection.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
+            session = connection.createQueueSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
             // 创建一个消息队列
-            Destination destination = session.createQueue(DESTINATION);
-            // 创建消息制作者
-            MessageProducer producer = session.createProducer(destination);
+            Queue queue = session.createQueue(DESTINATION);
+            // 创建消息发送者
+            javax.jms.QueueSender sender = session.createSender(queue);
             // 设置持久化模式
-            producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
-            sendMessage(session, producer);
+            sender.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+            sendMessage(session, sender);
             // 提交会话
             session.commit();
 
@@ -81,6 +84,6 @@ public class MessageSender {
     }
 
     public static void main(String[] args) throws Exception {
-        MessageSender.run();
+        QueueSender.run();
     }
 }

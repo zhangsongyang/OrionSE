@@ -13,6 +13,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 /**
  * <b>function:</b> 消息接收者
+ * 使用JMS方式发送接收消息
  *
  * @file MessageReceiver.java
  */
@@ -21,7 +22,7 @@ public class MessageReceiver {
     // tcp 地址
     public static final String BROKER_URL = "tcp://localhost:61616";
     // 目标，在ActiveMQ管理员控制台创建 http://localhost:8161/admin/queues.jsp
-    public static final String DESTINATION = "hoo.mq.queue";
+    public static final String DESTINATION = "hoopc.mq.queue";
 
 
     public static void run() throws Exception {
@@ -39,7 +40,7 @@ public class MessageReceiver {
             session = connection.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
             // 创建一个消息队列
             Destination destination = session.createQueue(DESTINATION);
-            // 创建消息制作者
+            // 创建消息消费者
             MessageConsumer consumer = session.createConsumer(destination);
 
             while (true) {
