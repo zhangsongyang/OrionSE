@@ -5,8 +5,12 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
@@ -31,7 +35,7 @@ public class MarryTest {
 //        UUID str = UUID.randomUUID();
 //        System.out.println(str.toString());
         String srcid = "FUNMUSIC";
-        if("funmusic".equalsIgnoreCase(srcid)){
+        if ("funmusic".equalsIgnoreCase(srcid)) {
             System.out.println("asfd");
         }
 
@@ -84,7 +88,7 @@ public class MarryTest {
 //        System.out.println("-------------");
 
 //        Random random = new Random();
-        for(int i=0; i<100; i++){
+        for (int i = 0; i < 100; i++) {
             Random random = new Random();
 //            int index = random.nextInt(4);
             int a = random.nextInt(4);
@@ -111,7 +115,7 @@ public class MarryTest {
     public void marry6() {
 //        String[] ss = new String[]{"1001008096", "1001008097"};
 //        System.out.println(ss[0] + "   " + ss[1]);
-        System.out.println((int)Math.rint(333.544));
+        System.out.println((int) Math.rint(333.544));
 
 
 //        for (int i = 0; i < 100; i++) {
@@ -122,7 +126,29 @@ public class MarryTest {
 
     }
 
+    @Test
+    public void marry7() throws Exception {
+        List<String> list = FileUtils.readLines(new File("E:\\Users\\zhangsongyang\\github\\OrionSE\\src\\test\\resources\\sexurl.list"));
+        for (String str : list) {
+            System.out.println(URLDecoder.decode(str, "GBK"));
+        }
 
+    }
+
+
+    @Test
+    public void marry8() {
+        int[] arr = {4, 2, 1, 2, 4};
+        int res = 0;//初始值
+        for (int i = 0; i < arr.length; i++) {
+            res ^= arr[i];
+        }
+        System.out.println(res);
+
+//        算法的原理就是：任何数异或0值不变，任何数与自己异或值为0。
+//        因此一个数两次异或同一个数，值不变。
+
+    }
 
 
 }
