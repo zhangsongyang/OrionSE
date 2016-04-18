@@ -7,8 +7,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceT extends BaseServiceT<User> {
 
+    private UserRepositoryT getUserRepository() {
+        return (UserRepositoryT) baseRepositoryT;
+    }
+
     public void selfService(){
-        ((UserRepositoryT)baseRepositoryT).selfSave();
+        getUserRepository().selfSave();
         System.out.println("UserServiceT.....................selfService");
     }
 
