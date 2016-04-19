@@ -2,13 +2,65 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:当前库表映射文件的命名空间，唯一的不能重复 -->
 <mapper namespace="BlogMapper">
-    <resultMap type="Blog" id="BlogMapw">
+
+    <!--
+            resultMap：适合使用返回值是自定义实体类的情况
+            resultType：适合使用返回值得数据类型是非自定义的，即jdk的提供的类型
+            resultMap ：
+                        type：映射实体类的数据类型
+                        id：resultMap的唯一标识
+                        column:库表的字段名
+                        property：实体类里的属性名
+    -->
+    <!-- type:映射实体类的数据类型 id：resultMap的唯一标识 -->
+    <resultMap type="Blog" id="BlogMap">
+        <!-- column:库表的字段名 property:实体类里的属性名 -->
         <result property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="old" column="old"/>
     </resultMap>
-    <select id="selectBlog" resultType="Blog">
-        select id,name from Blog where id = #{id}
+
+    <!-- sql语句返回值类型使用resultMap -->
+    <select id="selectBlogById" parameterType="java.lang.Integer" resultMap="BlogMap">
+        <![CDATA[select * from Blog where id = #{id}]]>
     </select>
+
+    <!--
+        resultMap:适合使用返回值是自定义实体类的情况
+        resultType：适合使用返回值的数据类型是非自定义的，即jdk的提供的类型
+    -->
+    <select id="selectBlogCount" resultType="java.lang.Integer">
+        <![CDATA[select count(*) from Blog]]>
+    </select>
+
+    <select id="selectBlogByIdWithMap" parameterType="int" resultType="Map">
+        <![CDATA[select * from Blog where id = #{id}]]>
+    </select>
+
+    <select id="selectBlogList" parameterType="String" resultMap="BlogMap">
+        <![CDATA[select * from Blog where old like concat(#{old}, '%')]]>
+    </select>
+
+    <select id="selectBlogByNameAndOld" parameterType="Map" resultMap="BlogMap">
+        <![CDATA[select * from Blog where name = #{name} and old = #{old}]]>
+    </select>
+
+    <!-- 插入数据 -->
+    <insert id="insertBlog" parameterType="Blog" useGeneratedKeys="true" keyProperty="id">
+        <![CDATA[insert into Blog(name, old) values(#{name}, #{old})]]>
+    </insert>
+
+
+    <!-- 删除-->
+    <delete id="deleteBlog" parameterType="int">
+        <![CDATA[delete from Blog where id=#{id}]]>
+    </delete>
+
+    <!-- 修改-->
+    <update id="updateBlog" parameterType="Blog">
+        <![CDATA[update Blog set Blog.name = #{name}, Blog.old = #{old} where Blog.id = #{id}]]>
+    </update>
+
 </mapper>

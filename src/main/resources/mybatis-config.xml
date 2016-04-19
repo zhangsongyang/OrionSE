@@ -16,8 +16,7 @@
     </settings>
 
     <typeAliases>
-    <!-- 权限控制 -->
-    <typeAlias alias="Blog" type="cn.zsy.eg.mybatis.entity.Blog"/>
+        <typeAlias alias="Blog" type="cn.zsy.eg.mybatis.entity.Blog"/>
     </typeAliases>
 
     <environments default="development">
