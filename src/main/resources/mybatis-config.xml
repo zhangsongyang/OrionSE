@@ -39,5 +39,6 @@
     <!-- ORM映射文件 -->
     <mappers>
         <mapper resource="cn/zsy/eg/mybatis/entity/BlogMapper.xml"/>
+        <mapper class="cn.zsy.eg.mybatis.entity.BlogMapper"/>
     </mappers>
 </configuration>
