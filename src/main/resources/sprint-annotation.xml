@@ -17,4 +17,9 @@
     <task:executor id="myExecutor" pool-size="5"/>
     <task:annotation-driven executor="myExecutor" scheduler="myScheduler"/>
 
+    <!-- 配置方式，可以用注解@Scheduled -->
+    <!--<task:scheduled-tasks scheduler="myScheduler">-->
+        <!--<task:scheduled ref="taskJob" method="job1" cron="*/5 * * * * ?"/>-->
+    <!--</task:scheduled-tasks>-->
+
 </beans>
