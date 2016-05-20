@@ -4,9 +4,10 @@ package cn.zsy.eg.ApacheCommon;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Teacher implements Cloneable {
+public class Teacher implements Cloneable, Serializable {
 
     private String name;
     private int age;
