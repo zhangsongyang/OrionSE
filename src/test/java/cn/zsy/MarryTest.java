@@ -1,20 +1,14 @@
 package cn.zsy;
 
+import cn.zsy.util.HttpUtil;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 public class MarryTest {
 
@@ -138,16 +132,32 @@ public class MarryTest {
 
     @Test
     public void marry8() {
-        int[] arr = {4, 2, 1, 2, 4};
-        int res = 0;//初始值
-        for (int i = 0; i < arr.length; i++) {
-            res ^= arr[i];
-        }
-        System.out.println(res);
+//        int[] arr = {4, 2, 1, 2, 4};
+//        int res = 0;//初始值
+//        for (int i = 0; i < arr.length; i++) {
+//            res ^= arr[i];
+//        }
+//        System.out.println(res);
+
+
+//String str = "upfile/picture/user_loin_avatar.png";
+//        if(StringUtils.contains(str, "upfile/picture/user_loin_avatar.png")){
+//            System.out.println("2222222222");;
+//        }
 
 //        算法的原理就是：任何数异或0值不变，任何数与自己异或值为0。
 //        因此一个数两次异或同一个数，值不变。
+        String url = "http://120.197.89.214:22122/group1/M00/05/08/wKjUQVdzoZuAWeUMAAVIfrCOtJk395.jpg";
+        System.out.println(HttpUtil.getHttpUrlContent(url, "utf-8"));
 
+
+    }
+
+    @Test
+    public void marry9() {
+        List<String> list = new ArrayList<String>();
+        list.add("asdf");
+        System.out.println(CollectionUtils.isNotEmpty(list));
     }
 
 
