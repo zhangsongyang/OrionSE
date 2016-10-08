@@ -15,6 +15,7 @@
 
     <!-- Jedis ConnectionFactory -->
     <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          destroy-method="destroy"
           p:hostName="${redis.ip}" p:port="${redis.port}" p:poolConfig-ref="jedisPoolConfig" p:usePool="true" p:database="2"/>
 
     <bean id="jedisConnectionFactoryF" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
