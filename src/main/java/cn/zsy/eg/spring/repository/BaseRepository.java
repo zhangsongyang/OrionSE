@@ -3,5 +3,5 @@ package cn.zsy.eg.spring.repository;
 
 public interface BaseRepository {
 
-    void save();
+    void save(String x);
 }
