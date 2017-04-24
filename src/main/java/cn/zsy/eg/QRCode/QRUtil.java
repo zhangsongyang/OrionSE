@@ -1,9 +1,14 @@
 package cn.zsy.eg.QRCode;
 
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Image;
+import com.google.zxing.*;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
@@ -12,23 +17,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Hashtable;
-import javax.imageio.ImageIO;
-
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.BinaryBitmap;
-import com.google.zxing.DecodeHintType;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.LuminanceSource;
-import com.google.zxing.MultiFormatReader;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.ReaderException;
-import com.google.zxing.Result;
-import com.google.zxing.WriterException;
-import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.common.HybridBinarizer;
-import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 /**
  * 二维码图片工具类
@@ -278,17 +266,7 @@ public class QRUtil {
 
         /**部分一开始***********生成常规二维码*************/
         //二维码内容
-//        String content = "张松杨 15109218909 \n 人生总是很累，你现在不累，以后会更累。";
-//        String content = "我爱你\n你是我的七十亿分之一\n张松杨&谢世会";
-//        String content = "一生太短\n这一生都对你一心一意的就够了";
-//        String content = "我知道异地恋很辛苦\n是你一生的赌注\n我怎么舍得让你输";
-//        String content = "我喜欢吃醋并不是因为我不相信你\n而是因为我真的太爱你";
-//        String content = "自从遇见你，我变成了福尔摩斯\n不放过任何你的蛛丝马迹";
-//        String content = "我只有做一件事的时候才会想你\n那就是呼吸 ";
-//        String content = "换我一生的荣耀\n让我陪你到天荒地老";
-//        String content = "我只有一个小小的愿望\n生命中永远有你";
         String content = "我每天都会对你说出\n世界上最温暖的两个字~晚安~";
-//	String content = "张松杨 15109218909"; 
         //二维码宽度
         int width = 300;
         //二维码高度

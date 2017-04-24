@@ -18,8 +18,8 @@ import java.util.Map;
 public class QRCodeUtil {
 
     public static void main(String[] args) throws Exception{
-//        ByteArrayOutputStream out = QRCode.from("我爱你~ 张松杨&谢世会").to(ImageType.PNG).stream();
-        String contents = "我爱你~ 张松杨&谢世会";
+//        ByteArrayOutputStream out = QRCode.from("QRCode").to(ImageType.PNG).stream();
+        String contents = "QRCode~";
         contents = new String(contents.getBytes("UTF-8"), "ISO-8859-1");
         ByteArrayOutputStream out = QRCode.from(contents).withSize(250, 250).to(ImageType.PNG).stream();
 
@@ -63,7 +63,7 @@ public class QRCodeUtil {
 
 
         /////////////////////////////////////////////////////////
-        String contentss = "我爱你~ \n张松杨&谢世会";
+        String contentss = "QRcode";
         int width = 250;
         int height = 250;
         String imgPath = "e:/";
