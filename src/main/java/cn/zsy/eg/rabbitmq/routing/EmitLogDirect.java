@@ -33,8 +33,7 @@ public class EmitLogDirect {
             String severity = getSeverity();
             String message = severity + "_log :" + UUID.randomUUID().toString();
             // 发布消息至转发器，指定routingkey
-            channel.basicPublish(EXCHANGE_NAME, severity, null, message
-                    .getBytes());
+            channel.basicPublish(EXCHANGE_NAME, severity, null, message.getBytes());
             System.out.println(" [x] Sent '" + message + "'");
         }
 

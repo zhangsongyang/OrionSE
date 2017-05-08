@@ -32,8 +32,8 @@ public class Send {
         /*
         queueDeclare(String queue, boolean durable, boolean exclusive, boolean autoDelete, Map<String, Object> arguments)
         第一个参数queue
-        queue 如果不创建转发器（Exchanges）那么就是用(AMQP default)默认的转发器，那么
-        Producer只能发送到exchange，它是不能直接发送到queue的。现在我们使用默认的exchange（名字是空字符）。
+        如果不创建转发器（Exchanges）那么就是用(AMQP default)默认的转发器，那么
+        Producer只能发送到exchange，注意消息是不会直接发送到queue的。没有声明只是说用了默认的，使用默认的exchange（名字是空字符）。
         这个默认的exchange允许我们发送给指定的queue。routing_key就是指定的queue名字。
         第二个参数
         消息持久化（Message durability） durable = true; 表示持久化
