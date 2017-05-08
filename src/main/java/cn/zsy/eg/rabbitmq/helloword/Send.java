@@ -20,7 +20,7 @@ public class Send {
          */
         ConnectionFactory factory = new ConnectionFactory();
         //设置MabbitMQ所在主机ip或者主机名
-        factory.setHost("52.34.105.71");
+        factory.setHost("52.42.218.57");
         factory.setPort(5672);
         factory.setUsername("guest");
         factory.setPassword("guest");
@@ -42,7 +42,7 @@ public class Send {
         //发送的消息
         String message = "hello world!";
         //往队列中发出一条消息
-        for(long i=0; i<1000000000000000L; i++){
+        for(long i=0; i<1000000000L; i++){
             /*
             basicPublish(String exchange, String routingKey, BasicProperties props, byte[] body)
             第一个参数
