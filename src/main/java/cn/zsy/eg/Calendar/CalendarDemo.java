@@ -47,6 +47,8 @@ public class CalendarDemo {
 
         //设置当前时间为:2011-07-24 11:06:00
         calendar.setTime(new Date());
+        int maxDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);  //获取当月的月末
+        int minDay = calendar.getActualMinimum(Calendar.DAY_OF_MONTH);  //获取当月的月初
         int year = calendar.get(Calendar.YEAR);   //获取年;
         int month = calendar.get(Calendar.MONTH);  //获取月;
         int date = calendar.get(Calendar.DATE);   //获取天;
@@ -70,6 +72,8 @@ public class CalendarDemo {
             System.out.println("现在是下午");
         }
         System.out.println("==================================================");
+        System.out.println(maxDay);
+        System.out.println(minDay);
         System.out.println(year);
         System.out.println(month);
         System.out.println(date);
