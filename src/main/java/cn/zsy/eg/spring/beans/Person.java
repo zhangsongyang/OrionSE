@@ -41,4 +41,9 @@ public class Person {
                 ", car=" + car +
                 '}';
     }
+
+    public void init(){
+        System.out.println("init............."+toString());
+    }
+
 }
