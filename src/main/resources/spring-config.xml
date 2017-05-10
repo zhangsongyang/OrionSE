@@ -19,6 +19,14 @@
         <entry key="science" value="100"/>
     </util:map>
 
+    <util:list id="listUtil" list-class="java.util.ArrayList" value-type="cn.zsy.eg.spring.beans.UserBean">
+        <bean id="userBean123" class="cn.zsy.eg.spring.beans.UserBean" p:name="xieshihuilove" p:sex="nan" p:school="2222"
+              p:old="11" p:course-ref="courses"/>
+        <bean id="userBean124" class="cn.zsy.eg.spring.beans.UserBean" p:name="xieshihuilove" p:sex="nan" p:school="lllllll"
+              p:old="11" p:course-ref="courses"/>
+        <ref bean="userBean12"/>
+    </util:list>
+
     <bean id="userBean" class="cn.zsy.eg.spring.beans.UserBean">
         <property name="name" value="${user}"/>
         <property name="sex" value="nan1111"/>
@@ -47,7 +55,7 @@
 
     <bean id="person" class="cn.zsy.eg.spring.beans.Person" p:name="#{'redwwww1'}" p:sex="#{T(java.lang.Math).PI}"
           p:car-ref="car"
-          depends-on="car"/>
+          depends-on="car" init-method="init"/>
 
     <bean id="person1" class="cn.zsy.eg.spring.beans.Person">
         <property name="name" value="#{'www2'}"/>
