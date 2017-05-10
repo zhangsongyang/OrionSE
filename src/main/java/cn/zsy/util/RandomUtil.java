@@ -26,7 +26,7 @@ public class RandomUtil {
 
     public static void main(String[] args) {
         for(int i=0; i<10; i++){
-            String str = getRandom(10);
+            String str = getRandom(12);
             System.out.println(str);
         }
     }
