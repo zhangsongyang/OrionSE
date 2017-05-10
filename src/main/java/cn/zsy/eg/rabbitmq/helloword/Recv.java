@@ -13,7 +13,7 @@ public class Recv {
             java.lang.InterruptedException, TimeoutException {
         //打开连接和创建频道，与发送端一样
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("52.42.218.57");
+        factory.setHost("54.148.66.55");
         factory.setPort(5672);
         factory.setUsername("guest");
         factory.setPassword("guest");
