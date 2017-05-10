@@ -1,6 +1,5 @@
 package cn.zsy.eg.redis;
 
-import org.apache.commons.lang.StringUtils;
 import redis.clients.jedis.Jedis;
 
 import java.util.Set;
