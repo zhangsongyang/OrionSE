@@ -484,6 +484,13 @@ public class DateUtil {
         return getDateTime(getDatePattern(), aDate);
     }
 
+    public static String dateToString(Date date, String format) {
+        if (date == null)
+            return "";
+        SimpleDateFormat formater = new SimpleDateFormat(StringUtils.isEmpty(format) ? "yyyy-MM-dd HH:mm:ss" : format.trim());
+        return formater.format(date);
+    }
+
     /**
      * 将日期字符串按指定格式转换成日期类型
      *
