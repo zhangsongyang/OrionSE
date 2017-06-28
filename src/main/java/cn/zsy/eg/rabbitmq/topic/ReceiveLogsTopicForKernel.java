@@ -1,9 +1,8 @@
 package cn.zsy.eg.rabbitmq.topic;
 
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.QueueingConsumer;
+import com.rabbitmq.client.*;
+
+import java.io.IOException;
 
 public class ReceiveLogsTopicForKernel {
 
@@ -28,17 +27,18 @@ public class ReceiveLogsTopicForKernel {
 
         System.out.println(" [*] Waiting for messages about kernel. To exit press CTRL+C");
 
-        QueueingConsumer consumer = new QueueingConsumer(channel);
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+                    throws IOException {
+                String message = new String(body, "UTF-8");
+                String routingKey = envelope.getRoutingKey();
+                System.out.println(" [x] Received routingKey = " + routingKey + ",msg = " + message + ".");
+            }
+        };
+
         channel.basicConsume(queueName, true, consumer);
 
-        while (true) {
-            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
-            String message = new String(delivery.getBody());
-            String routingKey = delivery.getEnvelope().getRoutingKey();
-
-            System.out.println(" [x] Received routingKey = " + routingKey
-                    + ",msg = " + message + ".");
-        }
     }
 
 }

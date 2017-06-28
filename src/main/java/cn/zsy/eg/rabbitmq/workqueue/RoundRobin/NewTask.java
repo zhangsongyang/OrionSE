@@ -15,7 +15,7 @@ public class NewTask {
     public static void main(String[] args) throws IOException, TimeoutException {
         //创建连接和频道
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("52.34.105.71");
+        factory.setHost("172.16.120.21");
         factory.setPort(5672);
         factory.setUsername("guest");
         factory.setPassword("guest");

@@ -1,10 +1,8 @@
 package cn.zsy.eg.rabbitmq.workqueue.messageDurabilityAndFairDispatch;
 
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.QueueingConsumer;
+import com.rabbitmq.client.*;
 
+import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
@@ -21,7 +19,7 @@ public class Work {
         int hashCode = Work.class.hashCode();
         // 创建连接和频道
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("52.34.105.71");
+        factory.setHost("172.16.120.21");
         factory.setPort(5672);
         factory.setUsername("guest");
         factory.setPassword("guest");
@@ -35,21 +33,26 @@ public class Work {
         //设置最大服务转发消息数量
         int prefetchCount = 1;
         channel.basicQos(prefetchCount);
-        QueueingConsumer consumer = new QueueingConsumer(channel);
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+                    throws IOException {
+                String message = new String(body, "UTF-8");
+                System.out.println(hashCode + " [x] Received '" + message + "'");
+                try {
+                    doWork(message);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(hashCode + " [x] Done durability");
+                //发送应答
+                channel.basicAck(envelope.getDeliveryTag(), false);
+            }
+        };
         // 指定消费队列
         boolean ack = false; // 打开应答机制
         channel.basicConsume(QUEUE_NAME, ack, consumer);
-        while (true) {
-            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
-            String message = new String(delivery.getBody());
 
-            System.out.println(hashCode + " [x] Received '" + message + "'");
-            doWork(message);
-            System.out.println(hashCode + " [x] Done");
-            //channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
-            channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
-
-        }
 
     }
 

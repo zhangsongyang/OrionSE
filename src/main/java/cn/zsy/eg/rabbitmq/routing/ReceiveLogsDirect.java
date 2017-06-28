@@ -1,10 +1,8 @@
 package cn.zsy.eg.rabbitmq.routing;
 
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.QueueingConsumer;
+import com.rabbitmq.client.*;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeoutException;
 
@@ -34,15 +32,16 @@ public class ReceiveLogsDirect {
         channel.queueBind(queueName, EXCHANGE_NAME, severity);
         System.out.println(" [*] Waiting for " + severity + " logs. To exit press CTRL+C");
 
-        QueueingConsumer consumer = new QueueingConsumer(channel);
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+                    throws IOException {
+                String message = new String(body, "UTF-8");
+                System.out.println(" [x] Received '" + message + "'");
+            }
+        };
         channel.basicConsume(queueName, true, consumer);
 
-        while (true) {
-            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
-            String message = new String(delivery.getBody());
-
-            System.out.println(" [x] Received '" + message + "'");
-        }
     }
 
     /**

@@ -1,16 +1,8 @@
 package cn.zsy.eg.rabbitmq.PublishSubscribe;
 
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.QueueingConsumer;
+import com.rabbitmq.client.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.TimeoutException;
 
 public class ReceiveLogsToSave {
@@ -36,35 +28,19 @@ public class ReceiveLogsToSave {
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
-        QueueingConsumer consumer = new QueueingConsumer(channel);
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+                    throws IOException {
+                String message = new String(body, "UTF-8");
+                System.out.println(" [x save] Received ReceiveLogsToSave'" + message + "'");
+            }
+        };
         // 指定接收者，第二个参数为自动应答，无需手动应答
         channel.basicConsume(queueName, true, consumer);
 
-        while (true) {
-            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
-            String message = new String(delivery.getBody());
-
-//            print2File(message);
-            System.out.println(" [x] Received ReceiveLogsToSave'" + message + "'");
-        }
-
     }
 
-    private static void print2File(String msg) {
-        try {
-            String dir = ReceiveLogsToSave.class.getClassLoader().getResource("").getPath();
-            String logFileName = new SimpleDateFormat("yyyy-MM-dd")
-                    .format(new Date());
-            File file = new File(dir, logFileName + ".txt");
-            FileOutputStream fos = new FileOutputStream(file, true);
-            fos.write((msg + "\r\n").getBytes());
-            fos.flush();
-            fos.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 
 }

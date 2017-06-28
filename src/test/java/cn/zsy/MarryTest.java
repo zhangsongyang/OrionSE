@@ -7,6 +7,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.notnoop.apns.APNS;
+import com.notnoop.apns.ApnsService;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.httpclient.util.HttpURLConnection;
 import org.apache.commons.io.FileUtils;
@@ -577,5 +579,17 @@ public class MarryTest {
         }
     }
 
+
+    @Test
+    public void start() throws Exception {
+        ApnsService apnsService = APNS.newService()
+                .withCert("D:/code/github/hjy-im/hjy-im-push-apns-worker/src/test/resources/Guangdongxiaoxuntong.p12", "qtone123456")
+                //.asQueued(threadFactory)
+                .asPool(80)
+                .withAppleDestination(true).withConnectTimeout(4000)
+                .build();
+//        apnsService.start();
+
+    }
 
 }

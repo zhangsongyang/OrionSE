@@ -1,10 +1,8 @@
 package cn.zsy.eg.rabbitmq.workqueue.acknowledgments;
 
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.QueueingConsumer;
+import com.rabbitmq.client.*;
 
+import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 public class Work {
@@ -28,22 +26,25 @@ public class Work {
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         System.out.println(hashCode
                 + " [*] Waiting for messages. To exit press CTRL+C");
-        QueueingConsumer consumer = new QueueingConsumer(channel);
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+                    throws IOException {
+                String message = new String(body, "UTF-8");
+                System.out.println(hashCode + " [x] Received '" + message + "'");
+                try {
+                    doWork(message);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(hashCode + " [x] Done acknowledgments");
+                //发送应答
+                channel.basicAck(envelope.getDeliveryTag(), false);
+            }
+        };
         // 指定消费队列
         boolean ack = false; //打开应答机制
         channel.basicConsume(QUEUE_NAME, ack, consumer);
-        while (true) {
-            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
-            String message = new String(delivery.getBody());
-
-            System.out.println(hashCode + " [x] Received '" + message + "'");
-            doWork(message);
-            System.out.println(hashCode + " [x] Done");
-            //发送应答
-            channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
-
-        }
-
     }
 
     /**
