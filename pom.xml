@@ -416,6 +416,13 @@
             <version>3.4.10</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.10</version>
+        </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/com.notnoop.apns/apns -->
         <dependency>
             <groupId>com.notnoop.apns</groupId>
