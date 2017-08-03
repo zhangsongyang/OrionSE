@@ -55,7 +55,7 @@ public class MarryTest {
     @Test
     public void marry2() {
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             Random r = new Random();
             System.out.println(r.nextInt(3));
         }
@@ -99,7 +99,7 @@ public class MarryTest {
 //        System.out.println("-------------");
 
 //        Random random = new Random();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             Random random = new Random();
 //            int index = random.nextInt(4);
             int a = random.nextInt(4);
@@ -139,10 +139,10 @@ public class MarryTest {
 
     @Test
     public void marry7() throws Exception {
-        List<String> list = FileUtils.readLines(new File("E:\\Users\\zhangsongyang\\github\\OrionSE\\src\\test\\resources\\sexurl.list"));
-        for (String str : list) {
-            System.out.println(URLDecoder.decode(str, "GBK"));
-        }
+//        List<String> list = FileUtils.readLines(new File("E:\\Users\\zhangsongyang\\github\\OrionSE\\src\\test\\resources\\sexurl.list"));
+//        for (String str : list) {
+//            System.out.println(URLDecoder.decode(str, "GBK"));
+//        }
 
     }
 
@@ -188,21 +188,6 @@ public class MarryTest {
     }
 
 
-    @Test
-    public void marray11() {
-        List<Long> idList = new ArrayList<Long>();
-        idList.add(1L);
-        idList.add(2L);
-        idList.add(3L);
-        Object[] ob = idList.toArray();
-        Long[] aaa = (Long[]) ob;
-//        for(){
-//
-//        }
-        Long[] aa = {};
-        aa[0] = 1L;
-        System.out.println(aaa.toString());
-    }
 
     @Test
     public void marray12() {
@@ -337,7 +322,7 @@ public class MarryTest {
 
     @Test
     public void marry18() {
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
             long random = NumberUtils.toLong(RandomStringUtils.randomNumeric(2), 10000);
             System.out.println(random);
         }
@@ -353,26 +338,26 @@ public class MarryTest {
 
     @Test
     public void marry20() throws IOException {
-        File fileNew = new File("e:/aa.gif");
-        if (!fileNew.getParentFile().exists()) {
-            fileNew.getParentFile().mkdirs();
-        }
-        if (fileNew.exists()) {
-            System.out.println("empty");
-            System.out.println(fileNew.length());
-        }
-        fileNew.createNewFile();
-        byte[] fileByte = new byte[1024];
-
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(fileByte);
-        FileOutputStream fileOutputStream = new FileOutputStream(fileNew);
-        IOUtils.copy(byteArrayInputStream, fileOutputStream);
-        if (null != byteArrayInputStream) {
-            byteArrayInputStream.close();
-        }
-        if (null != fileOutputStream) {
-            fileOutputStream.close();
-        }
+//        File fileNew = new File("e:/aa.gif");
+//        if (!fileNew.getParentFile().exists()) {
+//            fileNew.getParentFile().mkdirs();
+//        }
+//        if (fileNew.exists()) {
+//            System.out.println("empty");
+//            System.out.println(fileNew.length());
+//        }
+//        fileNew.createNewFile();
+//        byte[] fileByte = new byte[1024];
+//
+//        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(fileByte);
+//        FileOutputStream fileOutputStream = new FileOutputStream(fileNew);
+//        IOUtils.copy(byteArrayInputStream, fileOutputStream);
+//        if (null != byteArrayInputStream) {
+//            byteArrayInputStream.close();
+//        }
+//        if (null != fileOutputStream) {
+//            fileOutputStream.close();
+//        }
     }
 
 
@@ -582,12 +567,12 @@ public class MarryTest {
 
     @Test
     public void start() throws Exception {
-        ApnsService apnsService = APNS.newService()
-                .withCert("D:/code/github/hjy-im/hjy-im-push-apns-worker/src/test/resources/Guangdongxiaoxuntong.p12", "qtone123456")
-                //.asQueued(threadFactory)
-                .asPool(80)
-                .withAppleDestination(true).withConnectTimeout(4000)
-                .build();
+//        ApnsService apnsService = APNS.newService()
+//                .withCert("D:/code/github/hjy-im/hjy-im-push-apns-worker/src/test/resources/Guangdongxiaoxuntong.p12", "qtone123456")
+//                .asQueued(threadFactory)
+//                .asPool(80)
+//                .withAppleDestination(true).withConnectTimeout(4000)
+//                .build();
 //        apnsService.start();
 
     }

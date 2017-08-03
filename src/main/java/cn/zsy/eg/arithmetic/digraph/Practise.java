@@ -38,26 +38,26 @@ public class Practise {
 
 
 
-    List<Edge<String>> roadList = null; //ÒÑÖªµÄÂ·¾¶
-    List<String> backList = new ArrayList<String>(); //´æ·ÅÒÑ¾­·ÃÎÊ¹ıµÄ½Úµã
-    Set<String> resultSet = new HashSet<String>(); //Ä¿µÄÂ·¾¶--·ÃÎÊ½á¹û
-    Set<Edge<String>> cirList = new HashSet<Edge<String>>();    //»ØÂ·
+    List<Edge<String>> roadList = null; //
+    List<String> backList = new ArrayList<String>(); //
+    Set<String> resultSet = new HashSet<String>(); //
+    Set<Edge<String>> cirList = new HashSet<Edge<String>>();    //
 
     /**
-     * Â·¾¶±éÀúµÄºËĞÄËã·¨
      *
-     * @param start       ---ĞèÒªÑ°ÕÒµÄÆğÊ¼½Úµã¡£
-     * @param destination ---ĞèÒªÑ°ÕÒµÄÖÕ½áµã¡£
+     *
+     * @param start
+     * @param destination
      */
     public void getAllRoad(String start, String destination) {
         backList.add(start);
         for (int z = 0; z < roadList.size(); z++) {
-            if (roadList.get(z).getSource().equals(start)) { //Ñ°ÕÒÕÒÒÔstart¿ªÊ¼µÄÂ·¾¶
-                if (roadList.get(z).getDest().equals(destination)) { //Èç¹ûÒÔdestination½áÎ²£¬ÔòÎªÒ»ÌõÓĞĞ§Â·¾¶
+            if (roadList.get(z).getSource().equals(start)) { //
+                if (roadList.get(z).getDest().equals(destination)) { //
                     resultSet.add(backList.toString().substring(0, backList.toString().lastIndexOf("]")) + ", " + destination + "]");
                     continue;
                 }
-                if (!backList.contains(roadList.get(z).getDest())) {//´Ë½ÚµãÈÔÎ´±éÀú£¬Ôò¼ÌĞøµü´ú
+                if (!backList.contains(roadList.get(z).getDest())) {//ï¿½Ë½Úµï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     getAllRoad(roadList.get(z).getDest(), destination);
                 } else {
                     cirList.add(roadList.get(z));

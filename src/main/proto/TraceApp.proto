@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+package cn.zsy.eg.google.protobuf.bean;
+
+option java_package = "cn.zsy.eg.google.protobuf.bean";
+option java_outer_classname = "UTraceLogBean"; //生成的数据访问类的类名
+
+message TraceApp {
+    required string id = 1;
+    required string sys = 2;
+    required string ts = 3;
+    optional string mtype = 4;
+    optional string cfg = 5;
+    required string code = 6;
+    optional string span = 7;
+}

@@ -40,25 +40,25 @@ public class MessageSenderTest {
 	//酷我招募succ
 	@Test
 	public void sendKUWOZHAOMUSucc() throws IOException{
-		File file = new File("E:\\Users\\zhangsongyang\\github\\OrionSE\\src\\main\\resources\\sendmess_kuwo_succ.txt");
-		List<String> line = FileUtils.readLines(file);
-		Set<String> set = new HashSet<String>();
-		Map<String, String> map = new HashMap<String, String>();
-		for(String str : line){
-			set.add(str);
-		}
-		for(String str : set){
-			String[] split = StringUtils.split(str, "\t");
-			for (int i = 0; i < split.length-1; i++){
-				map.put(split[i+1], split[i]);
-			}
-		}
-		for(String str : map.keySet()){
-			String value = map.get(str);
-			System.out.println(str + "------->" + content1);
+//		File file = new File("E:\\Users\\zhangsongyang\\github\\OrionSE\\src\\main\\resources\\sendmess_kuwo_succ.txt");
+//		List<String> line = FileUtils.readLines(file);
+//		Set<String> set = new HashSet<String>();
+//		Map<String, String> map = new HashMap<String, String>();
+//		for(String str : line){
+//			set.add(str);
+//		}
+//		for(String str : set){
+//			String[] split = StringUtils.split(str, "\t");
+//			for (int i = 0; i < split.length-1; i++){
+//				map.put(split[i+1], split[i]);
+//			}
+//		}
+//		for(String str : map.keySet()){
+//			String value = map.get(str);
+//			System.out.println(str + "------->" + content1);
 //			MessageSender.sendPhoneMsg(str, content1);
-		}
-		System.out.println(map.size());
+//		}
+//		System.out.println(map.size());
 	}
 
 	//酷我招募fail

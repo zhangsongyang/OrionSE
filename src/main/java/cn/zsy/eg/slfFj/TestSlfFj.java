@@ -9,12 +9,15 @@ public class TestSlfFj {
     private static final Logger logger = LoggerFactory.getLogger(TestSlfFj.class);
 
     public static void main(String[] args) {
-        logger.debug("This is debug message");
-        logger.info("This is info message");
-        logger.warn("This is warn message");
-        logger.error("This is error message");
-        logger.info("{} is {}", new String[]{"x","y"});
-        logger.info("{1,2} is {}", "2");
+//        logger.debug("This is debug message");
+//        logger.info("This is info message");
+//        logger.warn("This is warn message");
+//        logger.error("This is error message");
+//        logger.info("{} is {}", new String[]{"x","y"});
+//        logger.info("{1,2} is {}", "2");
+        NullPointerException e = new NullPointerException();
+        logger.error("dubboAccountServiceg getUserInfo has a error, uhomeUserId:{}, AccoutToken:{}",
+            "asdfasdf", "234234234", e);
     }
 
 }

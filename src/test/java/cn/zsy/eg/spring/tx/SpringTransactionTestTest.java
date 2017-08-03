@@ -25,27 +25,27 @@ public class SpringTransactionTestTest {
 
     @Test
     public void testTransactionlPropagation(){
-        cashier.checkout("AA", Arrays.asList("1001", "1002"));
+//        cashier.checkout("AA", Arrays.asList("1001", "1002"));
     }
 
     @Test
     public void testBookShopService(){
-        bookShopService.purchase("AA", "1001");
+//        bookShopService.purchase("AA", "1001");
     }
 
     @Test
     public void testBookShopDaoUpdateUserAccount(){
-        bookShopDao.updateUserAccount("AA", 5);
+//        bookShopDao.updateUserAccount("AA", 5);
     }
 
     @Test
     public void testBookShopDaoUpdateBookStock(){
-        bookShopDao.updateBookStock("1001");
+//        bookShopDao.updateBookStock("1001");
     }
 
     @Test
     public void testBookShopDaoFindPriceByIsbn() {
-        System.out.println(bookShopDao.findBookPriceByIsbn("1001"));
+//        System.out.println(bookShopDao.findBookPriceByIsbn("1001"));
     }
 
 
