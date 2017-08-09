@@ -4,1191 +4,1422 @@
 package cn.zsy.eg.google.protobuf.bean;
 
 public final class SearchRequestProtos {
-    private SearchRequestProtos() {
-    }
+  private SearchRequestProtos() {}
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
 
-    public static void registerAllExtensions(
-        com.google.protobuf.ExtensionRegistryLite registry) {
-    }
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  public interface SearchRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cn.zsy.eg.google.protobuf.bean.SearchRequest)
+      com.google.protobuf.MessageOrBuilder {
 
-    public static void registerAllExtensions(
-        com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-            (com.google.protobuf.ExtensionRegistryLite) registry);
-    }
-
-    public interface SearchRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:cn.zsy.eg.google.protobuf.bean.SearchRequest)
-        com.google.protobuf.MessageOrBuilder {
-
-        /**
-         * <code>string query = 1;</code>
-         */
-        String getQuery();
-
-        /**
-         * <code>string query = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    /**
+     * <code>string query = 1;</code>
+     */
+    String getQuery();
+    /**
+     * <code>string query = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getQueryBytes();
 
-        /**
-         * <code>int32 page_number = 2;</code>
-         */
-        int getPageNumber();
+    /**
+     * <code>int32 page_number = 2;</code>
+     */
+    int getPageNumber();
 
-        /**
-         * <code>int32 result_per_page = 3;</code>
-         */
-        int getResultPerPage();
+    /**
+     * <code>int32 result_per_page = 3;</code>
+     */
+    int getResultPerPage();
 
-        /**
-         * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-         */
-        java.util.List<SearchRequest.Corpus> getCorpusList();
+    /**
+     * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+     */
+    java.util.List<SearchRequest.Corpus> getCorpusList();
+    /**
+     * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+     */
+    int getCorpusCount();
+    /**
+     * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+     */
+    SearchRequestProtos.SearchRequest.Corpus getCorpus(int index);
+    /**
+     * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+     */
+    java.util.List<Integer>
+    getCorpusValueList();
+    /**
+     * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+     */
+    int getCorpusValue(int index);
 
-        /**
-         * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-         */
-        int getCorpusCount();
+    /**
+     * <code>map&lt;string, string&gt; projects = 5;</code>
+     */
+    int getProjectsCount();
+    /**
+     * <code>map&lt;string, string&gt; projects = 5;</code>
+     */
+    boolean containsProjects(
+        String key);
+    /**
+     * Use {@link #getProjectsMap()} instead.
+     */
+    @Deprecated
+    java.util.Map<String, String>
+    getProjects();
+    /**
+     * <code>map&lt;string, string&gt; projects = 5;</code>
+     */
+    java.util.Map<String, String>
+    getProjectsMap();
+    /**
+     * <code>map&lt;string, string&gt; projects = 5;</code>
+     */
 
-        /**
-         * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-         */
-        SearchRequest.Corpus getCorpus(int index);
+    String getProjectsOrDefault(
+        String key,
+        String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; projects = 5;</code>
+     */
 
-        /**
-         * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-         */
-        java.util.List<Integer>
-        getCorpusValueList();
+    String getProjectsOrThrow(
+        String key);
+  }
+  /**
+   * Protobuf type {@code cn.zsy.eg.google.protobuf.bean.SearchRequest}
+   */
+  public  static final class SearchRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cn.zsy.eg.google.protobuf.bean.SearchRequest)
+      SearchRequestOrBuilder {
+    // Use SearchRequest.newBuilder() to construct.
+    private SearchRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SearchRequest() {
+      query_ = "";
+      pageNumber_ = 0;
+      resultPerPage_ = 0;
+      corpus_ = java.util.Collections.emptyList();
+    }
 
-        /**
-         * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-         */
-        int getCorpusValue(int index);
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private SearchRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              query_ = s;
+              break;
+            }
+            case 16: {
+
+              pageNumber_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              resultPerPage_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                corpus_ = new java.util.ArrayList<Integer>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              corpus_.add(rawValue);
+              break;
+            }
+            case 34: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                  corpus_ = new java.util.ArrayList<Integer>();
+                  mutable_bitField0_ |= 0x00000008;
+                }
+                corpus_.add(rawValue);
+              }
+              input.popLimit(oldLimit);
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                projects_ = com.google.protobuf.MapField.newMapField(
+                    ProjectsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000010;
+              }
+              com.google.protobuf.MapEntry<String, String>
+              projects__ = input.readMessage(
+                  ProjectsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              projects_.getMutableMap().put(
+                  projects__.getKey(), projects__.getValue());
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          corpus_ = java.util.Collections.unmodifiableList(corpus_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return SearchRequestProtos.internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 5:
+          return internalGetProjects();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return SearchRequestProtos.internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              SearchRequestProtos.SearchRequest.class, SearchRequestProtos.SearchRequest.Builder.class);
     }
 
     /**
-     * Protobuf type {@code cn.zsy.eg.google.protobuf.bean.SearchRequest}
+     * Protobuf enum {@code cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus}
      */
-    public static final class SearchRequest extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:cn.zsy.eg.google.protobuf.bean.SearchRequest)
-        SearchRequestOrBuilder {
-        // Use SearchRequest.newBuilder() to construct.
-        private SearchRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public enum Corpus
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>UNIVERSAL = 0;</code>
+       */
+      UNIVERSAL(0),
+      /**
+       * <code>WEB = 1;</code>
+       */
+      WEB(1),
+      /**
+       * <code>IMAGES = 2;</code>
+       */
+      IMAGES(2),
+      /**
+       * <code>LOCAL = 3;</code>
+       */
+      LOCAL(3),
+      /**
+       * <code>NEWS = 4;</code>
+       */
+      NEWS(4),
+      /**
+       * <code>PRODUCTS = 5;</code>
+       */
+      PRODUCTS(5),
+      /**
+       * <code>VIDEO = 6;</code>
+       */
+      VIDEO(6),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>UNIVERSAL = 0;</code>
+       */
+      public static final int UNIVERSAL_VALUE = 0;
+      /**
+       * <code>WEB = 1;</code>
+       */
+      public static final int WEB_VALUE = 1;
+      /**
+       * <code>IMAGES = 2;</code>
+       */
+      public static final int IMAGES_VALUE = 2;
+      /**
+       * <code>LOCAL = 3;</code>
+       */
+      public static final int LOCAL_VALUE = 3;
+      /**
+       * <code>NEWS = 4;</code>
+       */
+      public static final int NEWS_VALUE = 4;
+      /**
+       * <code>PRODUCTS = 5;</code>
+       */
+      public static final int PRODUCTS_VALUE = 5;
+      /**
+       * <code>VIDEO = 6;</code>
+       */
+      public static final int VIDEO_VALUE = 6;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
         }
+        return value;
+      }
 
-        private SearchRequest() {
-            query_ = "";
-            pageNumber_ = 0;
-            resultPerPage_ = 0;
-            corpus_ = java.util.Collections.emptyList();
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @Deprecated
+      public static Corpus valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static Corpus forNumber(int value) {
+        switch (value) {
+          case 0: return UNIVERSAL;
+          case 1: return WEB;
+          case 2: return IMAGES;
+          case 3: return LOCAL;
+          case 4: return NEWS;
+          case 5: return PRODUCTS;
+          case 6: return VIDEO;
+          default: return null;
         }
+      }
 
-        @Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      public static com.google.protobuf.Internal.EnumLiteMap<Corpus>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Corpus> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Corpus>() {
+              public Corpus findValueByNumber(int number) {
+                return Corpus.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return SearchRequestProtos.SearchRequest.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Corpus[] VALUES = values();
+
+      public static Corpus valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
         }
-
-        private SearchRequest(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            int mutable_bitField0_ = 0;
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!input.skipField(tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            String s = input.readStringRequireUtf8();
-
-                            query_ = s;
-                            break;
-                        }
-                        case 16: {
-
-                            pageNumber_ = input.readInt32();
-                            break;
-                        }
-                        case 24: {
-
-                            resultPerPage_ = input.readInt32();
-                            break;
-                        }
-                        case 32: {
-                            int rawValue = input.readEnum();
-                            if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                                corpus_ = new java.util.ArrayList<Integer>();
-                                mutable_bitField0_ |= 0x00000008;
-                            }
-                            corpus_.add(rawValue);
-                            break;
-                        }
-                        case 34: {
-                            int length = input.readRawVarint32();
-                            int oldLimit = input.pushLimit(length);
-                            while (input.getBytesUntilLimit() > 0) {
-                                int rawValue = input.readEnum();
-                                if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                                    corpus_ = new java.util.ArrayList<Integer>();
-                                    mutable_bitField0_ |= 0x00000008;
-                                }
-                                corpus_.add(rawValue);
-                            }
-                            input.popLimit(oldLimit);
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                    e).setUnfinishedMessage(this);
-            } finally {
-                if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                    corpus_ = java.util.Collections.unmodifiableList(corpus_);
-                }
-                makeExtensionsImmutable();
-            }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
         }
+        return VALUES[desc.getIndex()];
+      }
 
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return SearchRequestProtos.internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor;
-        }
+      private final int value;
 
-        protected FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return SearchRequestProtos.internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                    SearchRequest.class, Builder.class);
-        }
+      private Corpus(int value) {
+        this.value = value;
+      }
 
-        /**
-         * Protobuf enum {@code cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus}
-         */
-        public enum Corpus
-            implements com.google.protobuf.ProtocolMessageEnum {
-            /**
-             * <code>UNIVERSAL = 0;</code>
-             */
-            UNIVERSAL(0),
-            /**
-             * <code>WEB = 1;</code>
-             */
-            WEB(1),
-            /**
-             * <code>IMAGES = 2;</code>
-             */
-            IMAGES(2),
-            /**
-             * <code>LOCAL = 3;</code>
-             */
-            LOCAL(3),
-            /**
-             * <code>NEWS = 4;</code>
-             */
-            NEWS(4),
-            /**
-             * <code>PRODUCTS = 5;</code>
-             */
-            PRODUCTS(5),
-            /**
-             * <code>VIDEO = 6;</code>
-             */
-            VIDEO(6),
-            UNRECOGNIZED(-1),;
+      // @@protoc_insertion_point(enum_scope:cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus)
+    }
 
-            /**
-             * <code>UNIVERSAL = 0;</code>
-             */
-            public static final int UNIVERSAL_VALUE = 0;
-            /**
-             * <code>WEB = 1;</code>
-             */
-            public static final int WEB_VALUE = 1;
-            /**
-             * <code>IMAGES = 2;</code>
-             */
-            public static final int IMAGES_VALUE = 2;
-            /**
-             * <code>LOCAL = 3;</code>
-             */
-            public static final int LOCAL_VALUE = 3;
-            /**
-             * <code>NEWS = 4;</code>
-             */
-            public static final int NEWS_VALUE = 4;
-            /**
-             * <code>PRODUCTS = 5;</code>
-             */
-            public static final int PRODUCTS_VALUE = 5;
-            /**
-             * <code>VIDEO = 6;</code>
-             */
-            public static final int VIDEO_VALUE = 6;
-
-
-            public final int getNumber() {
-                if (this == UNRECOGNIZED) {
-                    throw new IllegalArgumentException(
-                        "Can't get the number of an unknown enum value.");
-                }
-                return value;
-            }
-
-            /**
-             * @deprecated Use {@link #forNumber(int)} instead.
-             */
-            @Deprecated
-            public static Corpus valueOf(int value) {
-                return forNumber(value);
-            }
-
-            public static Corpus forNumber(int value) {
-                switch (value) {
-                    case 0:
-                        return UNIVERSAL;
-                    case 1:
-                        return WEB;
-                    case 2:
-                        return IMAGES;
-                    case 3:
-                        return LOCAL;
-                    case 4:
-                        return NEWS;
-                    case 5:
-                        return PRODUCTS;
-                    case 6:
-                        return VIDEO;
-                    default:
-                        return null;
-                }
-            }
-
-            public static com.google.protobuf.Internal.EnumLiteMap<Corpus>
-            internalGetValueMap() {
-                return internalValueMap;
-            }
-
-            private static final com.google.protobuf.Internal.EnumLiteMap<
-                Corpus> internalValueMap =
-                new com.google.protobuf.Internal.EnumLiteMap<Corpus>() {
-                    public Corpus findValueByNumber(int number) {
-                        return Corpus.forNumber(number);
-                    }
-                };
-
-            public final com.google.protobuf.Descriptors.EnumValueDescriptor
-            getValueDescriptor() {
-                return getDescriptor().getValues().get(ordinal());
-            }
-
-            public final com.google.protobuf.Descriptors.EnumDescriptor
-            getDescriptorForType() {
-                return getDescriptor();
-            }
-
-            public static final com.google.protobuf.Descriptors.EnumDescriptor
-            getDescriptor() {
-                return SearchRequest.getDescriptor().getEnumTypes().get(0);
-            }
-
-            private static final Corpus[] VALUES = values();
-
-            public static Corpus valueOf(
-                com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-                if (desc.getType() != getDescriptor()) {
-                    throw new IllegalArgumentException(
-                        "EnumValueDescriptor is not for this type.");
-                }
-                if (desc.getIndex() == -1) {
-                    return UNRECOGNIZED;
-                }
-                return VALUES[desc.getIndex()];
-            }
-
-            private final int value;
-
-            private Corpus(int value) {
-                this.value = value;
-            }
-
-            // @@protoc_insertion_point(enum_scope:cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus)
-        }
-
-        private int bitField0_;
-        public static final int QUERY_FIELD_NUMBER = 1;
-        private volatile Object query_;
-
-        /**
-         * <code>string query = 1;</code>
-         */
-        public String getQuery() {
-            Object ref = query_;
-            if (ref instanceof String) {
-                return (String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
-                query_ = s;
-                return s;
-            }
-        }
-
-        /**
-         * <code>string query = 1;</code>
-         */
-        public com.google.protobuf.ByteString
+    private int bitField0_;
+    public static final int QUERY_FIELD_NUMBER = 1;
+    private volatile Object query_;
+    /**
+     * <code>string query = 1;</code>
+     */
+    public String getQuery() {
+      Object ref = query_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        query_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string query = 1;</code>
+     */
+    public com.google.protobuf.ByteString
         getQueryBytes() {
-            Object ref = query_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                        (String) ref);
-                query_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
+      Object ref = query_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        query_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
 
-        public static final int PAGE_NUMBER_FIELD_NUMBER = 2;
-        private int pageNumber_;
+    public static final int PAGE_NUMBER_FIELD_NUMBER = 2;
+    private int pageNumber_;
+    /**
+     * <code>int32 page_number = 2;</code>
+     */
+    public int getPageNumber() {
+      return pageNumber_;
+    }
 
-        /**
-         * <code>int32 page_number = 2;</code>
-         */
-        public int getPageNumber() {
-            return pageNumber_;
-        }
+    public static final int RESULT_PER_PAGE_FIELD_NUMBER = 3;
+    private int resultPerPage_;
+    /**
+     * <code>int32 result_per_page = 3;</code>
+     */
+    public int getResultPerPage() {
+      return resultPerPage_;
+    }
 
-        public static final int RESULT_PER_PAGE_FIELD_NUMBER = 3;
-        private int resultPerPage_;
-
-        /**
-         * <code>int32 result_per_page = 3;</code>
-         */
-        public int getResultPerPage() {
-            return resultPerPage_;
-        }
-
-        public static final int CORPUS_FIELD_NUMBER = 4;
-        private java.util.List<Integer> corpus_;
-        private static final com.google.protobuf.Internal.ListAdapter.Converter<
-            Integer, Corpus> corpus_converter_ =
+    public static final int CORPUS_FIELD_NUMBER = 4;
+    private java.util.List<Integer> corpus_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        Integer, Corpus> corpus_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 Integer, Corpus>() {
-                public Corpus convert(Integer from) {
-                    Corpus result = Corpus.valueOf(from);
-                    return result == null ? Corpus.UNRECOGNIZED : result;
-                }
+              public SearchRequestProtos.SearchRequest.Corpus convert(Integer from) {
+                SearchRequestProtos.SearchRequest.Corpus result = SearchRequestProtos.SearchRequest.Corpus.valueOf(from);
+                return result == null ? SearchRequestProtos.SearchRequest.Corpus.UNRECOGNIZED : result;
+              }
             };
-
-        /**
-         * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-         */
-        public java.util.List<Corpus> getCorpusList() {
-            return new com.google.protobuf.Internal.ListAdapter<
-                Integer, Corpus>(corpus_, corpus_converter_);
-        }
-
-        /**
-         * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-         */
-        public int getCorpusCount() {
-            return corpus_.size();
-        }
-
-        /**
-         * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-         */
-        public Corpus getCorpus(int index) {
-            return corpus_converter_.convert(corpus_.get(index));
-        }
-
-        /**
-         * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-         */
-        public java.util.List<Integer>
-        getCorpusValueList() {
-            return corpus_;
-        }
-
-        /**
-         * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-         */
-        public int getCorpusValue(int index) {
-            return corpus_.get(index);
-        }
-
-        private int corpusMemoizedSerializedSize;
-
-        private byte memoizedIsInitialized = -1;
-
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
-            getSerializedSize();
-            if (!getQueryBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, query_);
-            }
-            if (pageNumber_ != 0) {
-                output.writeInt32(2, pageNumber_);
-            }
-            if (resultPerPage_ != 0) {
-                output.writeInt32(3, resultPerPage_);
-            }
-            if (getCorpusList().size() > 0) {
-                output.writeUInt32NoTag(34);
-                output.writeUInt32NoTag(corpusMemoizedSerializedSize);
-            }
-            for (int i = 0; i < corpus_.size(); i++) {
-                output.writeEnumNoTag(corpus_.get(i));
-            }
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (!getQueryBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, query_);
-            }
-            if (pageNumber_ != 0) {
-                size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(2, pageNumber_);
-            }
-            if (resultPerPage_ != 0) {
-                size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(3, resultPerPage_);
-            }
-            {
-                int dataSize = 0;
-                for (int i = 0; i < corpus_.size(); i++) {
-                    dataSize += com.google.protobuf.CodedOutputStream
-                        .computeEnumSizeNoTag(corpus_.get(i));
-                }
-                size += dataSize;
-                if (!getCorpusList().isEmpty()) {
-                    size += 1;
-                    size += com.google.protobuf.CodedOutputStream
-                        .computeUInt32SizeNoTag(dataSize);
-                }
-                corpusMemoizedSerializedSize = dataSize;
-            }
-            memoizedSize = size;
-            return size;
-        }
-
-        private static final long serialVersionUID = 0L;
-
-        @Override
-        public boolean equals(final Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof SearchRequest)) {
-                return super.equals(obj);
-            }
-            SearchRequest other = (SearchRequest) obj;
-
-            boolean result = true;
-            result = result && getQuery()
-                .equals(other.getQuery());
-            result = result && (getPageNumber()
-                == other.getPageNumber());
-            result = result && (getResultPerPage()
-                == other.getResultPerPage());
-            result = result && corpus_.equals(other.corpus_);
-            return result;
-        }
-
-        @Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + QUERY_FIELD_NUMBER;
-            hash = (53 * hash) + getQuery().hashCode();
-            hash = (37 * hash) + PAGE_NUMBER_FIELD_NUMBER;
-            hash = (53 * hash) + getPageNumber();
-            hash = (37 * hash) + RESULT_PER_PAGE_FIELD_NUMBER;
-            hash = (53 * hash) + getResultPerPage();
-            if (getCorpusCount() > 0) {
-                hash = (37 * hash) + CORPUS_FIELD_NUMBER;
-                hash = (53 * hash) + corpus_.hashCode();
-            }
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static SearchRequest parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static SearchRequest parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static SearchRequest parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static SearchRequest parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static SearchRequest parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static SearchRequest parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static SearchRequest parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-        }
-
-        public static SearchRequest parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static SearchRequest parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input);
-        }
-
-        public static SearchRequest parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static SearchRequest parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-        }
-
-        public static SearchRequest parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-
-        public static Builder newBuilder(SearchRequest prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @Override
-        protected Builder newBuilderForType(
-            BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-
-        /**
-         * Protobuf type {@code cn.zsy.eg.google.protobuf.bean.SearchRequest}
-         */
-        public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:cn.zsy.eg.google.protobuf.bean.SearchRequest)
-            SearchRequestOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return SearchRequestProtos.internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor;
-            }
-
-            protected FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return SearchRequestProtos.internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                        SearchRequest.class, Builder.class);
-            }
-
-            // Construct using cn.zsy.eg.google.protobuf.bean.SearchRequestProtos.SearchRequest.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-                }
-            }
-
-            public Builder clear() {
-                super.clear();
-                query_ = "";
-
-                pageNumber_ = 0;
-
-                resultPerPage_ = 0;
-
-                corpus_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00000008);
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return SearchRequestProtos.internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor;
-            }
-
-            public SearchRequest getDefaultInstanceForType() {
-                return SearchRequest.getDefaultInstance();
-            }
-
-            public SearchRequest build() {
-                SearchRequest result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public SearchRequest buildPartial() {
-                SearchRequest result = new SearchRequest(this);
-                int from_bitField0_ = bitField0_;
-                int to_bitField0_ = 0;
-                result.query_ = query_;
-                result.pageNumber_ = pageNumber_;
-                result.resultPerPage_ = resultPerPage_;
-                if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                    corpus_ = java.util.Collections.unmodifiableList(corpus_);
-                    bitField0_ = (bitField0_ & ~0x00000008);
-                }
-                result.corpus_ = corpus_;
-                result.bitField0_ = to_bitField0_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof SearchRequest) {
-                    return mergeFrom((SearchRequest) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(SearchRequest other) {
-                if (other == SearchRequest.getDefaultInstance()) return this;
-                if (!other.getQuery().isEmpty()) {
-                    query_ = other.query_;
-                    onChanged();
-                }
-                if (other.getPageNumber() != 0) {
-                    setPageNumber(other.getPageNumber());
-                }
-                if (other.getResultPerPage() != 0) {
-                    setResultPerPage(other.getResultPerPage());
-                }
-                if (!other.corpus_.isEmpty()) {
-                    if (corpus_.isEmpty()) {
-                        corpus_ = other.corpus_;
-                        bitField0_ = (bitField0_ & ~0x00000008);
-                    } else {
-                        ensureCorpusIsMutable();
-                        corpus_.addAll(other.corpus_);
-                    }
-                    onChanged();
-                }
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-                SearchRequest parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (SearchRequest) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private int bitField0_;
-
-            private Object query_ = "";
-
-            /**
-             * <code>string query = 1;</code>
-             */
-            public String getQuery() {
-                Object ref = query_;
-                if (!(ref instanceof String)) {
-                    com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
-                    query_ = s;
-                    return s;
-                } else {
-                    return (String) ref;
-                }
-            }
-
-            /**
-             * <code>string query = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getQueryBytes() {
-                Object ref = query_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                            (String) ref);
-                    query_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string query = 1;</code>
-             */
-            public Builder setQuery(
-                String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                query_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string query = 1;</code>
-             */
-            public Builder clearQuery() {
-
-                query_ = getDefaultInstance().getQuery();
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string query = 1;</code>
-             */
-            public Builder setQueryBytes(
-                com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                query_ = value;
-                onChanged();
-                return this;
-            }
-
-            private int pageNumber_;
-
-            /**
-             * <code>int32 page_number = 2;</code>
-             */
-            public int getPageNumber() {
-                return pageNumber_;
-            }
-
-            /**
-             * <code>int32 page_number = 2;</code>
-             */
-            public Builder setPageNumber(int value) {
-
-                pageNumber_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>int32 page_number = 2;</code>
-             */
-            public Builder clearPageNumber() {
-
-                pageNumber_ = 0;
-                onChanged();
-                return this;
-            }
-
-            private int resultPerPage_;
-
-            /**
-             * <code>int32 result_per_page = 3;</code>
-             */
-            public int getResultPerPage() {
-                return resultPerPage_;
-            }
-
-            /**
-             * <code>int32 result_per_page = 3;</code>
-             */
-            public Builder setResultPerPage(int value) {
-
-                resultPerPage_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>int32 result_per_page = 3;</code>
-             */
-            public Builder clearResultPerPage() {
-
-                resultPerPage_ = 0;
-                onChanged();
-                return this;
-            }
-
-            private java.util.List<Integer> corpus_ =
-                java.util.Collections.emptyList();
-
-            private void ensureCorpusIsMutable() {
-                if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-                    corpus_ = new java.util.ArrayList<Integer>(corpus_);
-                    bitField0_ |= 0x00000008;
-                }
-            }
-
-            /**
-             * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-             */
-            public java.util.List<Corpus> getCorpusList() {
-                return new com.google.protobuf.Internal.ListAdapter<
-                    Integer, Corpus>(corpus_, corpus_converter_);
-            }
-
-            /**
-             * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-             */
-            public int getCorpusCount() {
-                return corpus_.size();
-            }
-
-            /**
-             * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-             */
-            public Corpus getCorpus(int index) {
-                return corpus_converter_.convert(corpus_.get(index));
-            }
-
-            /**
-             * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-             */
-            public Builder setCorpus(
-                int index, Corpus value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureCorpusIsMutable();
-                corpus_.set(index, value.getNumber());
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-             */
-            public Builder addCorpus(Corpus value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureCorpusIsMutable();
-                corpus_.add(value.getNumber());
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-             */
-            public Builder addAllCorpus(
-                Iterable<? extends Corpus> values) {
-                ensureCorpusIsMutable();
-                for (Corpus value : values) {
-                    corpus_.add(value.getNumber());
-                }
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-             */
-            public Builder clearCorpus() {
-                corpus_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00000008);
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-             */
-            public java.util.List<Integer>
-            getCorpusValueList() {
-                return java.util.Collections.unmodifiableList(corpus_);
-            }
-
-            /**
-             * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-             */
-            public int getCorpusValue(int index) {
-                return corpus_.get(index);
-            }
-
-            /**
-             * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-             */
-            public Builder setCorpusValue(
-                int index, int value) {
-                ensureCorpusIsMutable();
-                corpus_.set(index, value);
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-             */
-            public Builder addCorpusValue(int value) {
-                ensureCorpusIsMutable();
-                corpus_.add(value);
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
-             */
-            public Builder addAllCorpusValue(
-                Iterable<Integer> values) {
-                ensureCorpusIsMutable();
-                for (int value : values) {
-                    corpus_.add(value);
-                }
-                onChanged();
-                return this;
-            }
-
-            public final Builder setUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return this;
-            }
-
-            public final Builder mergeUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return this;
-            }
-
-
-            // @@protoc_insertion_point(builder_scope:cn.zsy.eg.google.protobuf.bean.SearchRequest)
-        }
-
-        // @@protoc_insertion_point(class_scope:cn.zsy.eg.google.protobuf.bean.SearchRequest)
-        private static final SearchRequest DEFAULT_INSTANCE;
-
-        static {
-            DEFAULT_INSTANCE = new SearchRequest();
-        }
-
-        public static SearchRequest getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<SearchRequest>
-            PARSER = new com.google.protobuf.AbstractParser<SearchRequest>() {
-            public SearchRequest parsePartialFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-                return new SearchRequest(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<SearchRequest> parser() {
-            return PARSER;
-        }
-
-        @Override
-        public com.google.protobuf.Parser<SearchRequest> getParserForType() {
-            return PARSER;
-        }
-
-        public SearchRequest getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+    /**
+     * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+     */
+    public java.util.List<Corpus> getCorpusList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          Integer, Corpus>(corpus_, corpus_converter_);
+    }
+    /**
+     * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+     */
+    public int getCorpusCount() {
+      return corpus_.size();
+    }
+    /**
+     * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+     */
+    public SearchRequestProtos.SearchRequest.Corpus getCorpus(int index) {
+      return corpus_converter_.convert(corpus_.get(index));
+    }
+    /**
+     * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+     */
+    public java.util.List<Integer>
+    getCorpusValueList() {
+      return corpus_;
+    }
+    /**
+     * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+     */
+    public int getCorpusValue(int index) {
+      return corpus_.get(index);
+    }
+    private int corpusMemoizedSerializedSize;
+
+    public static final int PROJECTS_FIELD_NUMBER = 5;
+    private static final class ProjectsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          String, String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<String, String>newDefaultInstance(
+                  SearchRequestProtos.internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_ProjectsEntry_descriptor,
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        String, String> projects_;
+    private com.google.protobuf.MapField<String, String>
+    internalGetProjects() {
+      if (projects_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ProjectsDefaultEntryHolder.defaultEntry);
+      }
+      return projects_;
     }
 
-    private static final com.google.protobuf.Descriptors.Descriptor
-        internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_fieldAccessorTable;
+    public int getProjectsCount() {
+      return internalGetProjects().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; projects = 5;</code>
+     */
 
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
+    public boolean containsProjects(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      return internalGetProjects().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getProjectsMap()} instead.
+     */
+    @Deprecated
+    public java.util.Map<String, String> getProjects() {
+      return getProjectsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; projects = 5;</code>
+     */
+
+    public java.util.Map<String, String> getProjectsMap() {
+      return internalGetProjects().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; projects = 5;</code>
+     */
+
+    public String getProjectsOrDefault(
+        String key,
+        String defaultValue) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, String> map =
+          internalGetProjects().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; projects = 5;</code>
+     */
+
+    public String getProjectsOrThrow(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, String> map =
+          internalGetProjects().getMap();
+      if (!map.containsKey(key)) {
+        throw new IllegalArgumentException();
+      }
+      return map.get(key);
     }
 
-    private static com.google.protobuf.Descriptors.FileDescriptor
-        descriptor;
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (!getQueryBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, query_);
+      }
+      if (pageNumber_ != 0) {
+        output.writeInt32(2, pageNumber_);
+      }
+      if (resultPerPage_ != 0) {
+        output.writeInt32(3, resultPerPage_);
+      }
+      if (getCorpusList().size() > 0) {
+        output.writeUInt32NoTag(34);
+        output.writeUInt32NoTag(corpusMemoizedSerializedSize);
+      }
+      for (int i = 0; i < corpus_.size(); i++) {
+        output.writeEnumNoTag(corpus_.get(i));
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetProjects(),
+          ProjectsDefaultEntryHolder.defaultEntry,
+          5);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getQueryBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, query_);
+      }
+      if (pageNumber_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, pageNumber_);
+      }
+      if (resultPerPage_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, resultPerPage_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < corpus_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeEnumSizeNoTag(corpus_.get(i));
+        }
+        size += dataSize;
+        if (!getCorpusList().isEmpty()) {  size += 1;
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(dataSize);
+        }corpusMemoizedSerializedSize = dataSize;
+      }
+      for (java.util.Map.Entry<String, String> entry
+           : internalGetProjects().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<String, String>
+        projects__ = ProjectsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(5, projects__);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof SearchRequestProtos.SearchRequest)) {
+        return super.equals(obj);
+      }
+      SearchRequestProtos.SearchRequest other = (SearchRequestProtos.SearchRequest) obj;
+
+      boolean result = true;
+      result = result && getQuery()
+          .equals(other.getQuery());
+      result = result && (getPageNumber()
+          == other.getPageNumber());
+      result = result && (getResultPerPage()
+          == other.getResultPerPage());
+      result = result && corpus_.equals(other.corpus_);
+      result = result && internalGetProjects().equals(
+          other.internalGetProjects());
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + QUERY_FIELD_NUMBER;
+      hash = (53 * hash) + getQuery().hashCode();
+      hash = (37 * hash) + PAGE_NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getPageNumber();
+      hash = (37 * hash) + RESULT_PER_PAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getResultPerPage();
+      if (getCorpusCount() > 0) {
+        hash = (37 * hash) + CORPUS_FIELD_NUMBER;
+        hash = (53 * hash) + corpus_.hashCode();
+      }
+      if (!internalGetProjects().getMap().isEmpty()) {
+        hash = (37 * hash) + PROJECTS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetProjects().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static SearchRequestProtos.SearchRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static SearchRequestProtos.SearchRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static SearchRequestProtos.SearchRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static SearchRequestProtos.SearchRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static SearchRequestProtos.SearchRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static SearchRequestProtos.SearchRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static SearchRequestProtos.SearchRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static SearchRequestProtos.SearchRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static SearchRequestProtos.SearchRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static SearchRequestProtos.SearchRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static SearchRequestProtos.SearchRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static SearchRequestProtos.SearchRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(SearchRequestProtos.SearchRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cn.zsy.eg.google.protobuf.bean.SearchRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cn.zsy.eg.google.protobuf.bean.SearchRequest)
+        SearchRequestProtos.SearchRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return SearchRequestProtos.internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 5:
+            return internalGetProjects();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 5:
+            return internalGetMutableProjects();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return SearchRequestProtos.internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                SearchRequestProtos.SearchRequest.class, SearchRequestProtos.SearchRequest.Builder.class);
+      }
+
+      // Construct using cn.zsy.eg.google.protobuf.bean.SearchRequestProtos.SearchRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        query_ = "";
+
+        pageNumber_ = 0;
+
+        resultPerPage_ = 0;
+
+        corpus_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        internalGetMutableProjects().clear();
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return SearchRequestProtos.internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor;
+      }
+
+      public SearchRequestProtos.SearchRequest getDefaultInstanceForType() {
+        return SearchRequestProtos.SearchRequest.getDefaultInstance();
+      }
+
+      public SearchRequestProtos.SearchRequest build() {
+        SearchRequestProtos.SearchRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public SearchRequestProtos.SearchRequest buildPartial() {
+        SearchRequestProtos.SearchRequest result = new SearchRequestProtos.SearchRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.query_ = query_;
+        result.pageNumber_ = pageNumber_;
+        result.resultPerPage_ = resultPerPage_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          corpus_ = java.util.Collections.unmodifiableList(corpus_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.corpus_ = corpus_;
+        result.projects_ = internalGetProjects();
+        result.projects_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof SearchRequestProtos.SearchRequest) {
+          return mergeFrom((SearchRequestProtos.SearchRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(SearchRequestProtos.SearchRequest other) {
+        if (other == SearchRequestProtos.SearchRequest.getDefaultInstance()) return this;
+        if (!other.getQuery().isEmpty()) {
+          query_ = other.query_;
+          onChanged();
+        }
+        if (other.getPageNumber() != 0) {
+          setPageNumber(other.getPageNumber());
+        }
+        if (other.getResultPerPage() != 0) {
+          setResultPerPage(other.getResultPerPage());
+        }
+        if (!other.corpus_.isEmpty()) {
+          if (corpus_.isEmpty()) {
+            corpus_ = other.corpus_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureCorpusIsMutable();
+            corpus_.addAll(other.corpus_);
+          }
+          onChanged();
+        }
+        internalGetMutableProjects().mergeFrom(
+            other.internalGetProjects());
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        SearchRequestProtos.SearchRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (SearchRequestProtos.SearchRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private Object query_ = "";
+      /**
+       * <code>string query = 1;</code>
+       */
+      public String getQuery() {
+        Object ref = query_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          query_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <code>string query = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getQueryBytes() {
+        Object ref = query_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          query_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string query = 1;</code>
+       */
+      public Builder setQuery(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+
+        query_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string query = 1;</code>
+       */
+      public Builder clearQuery() {
+
+        query_ = getDefaultInstance().getQuery();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string query = 1;</code>
+       */
+      public Builder setQueryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+
+        query_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int pageNumber_ ;
+      /**
+       * <code>int32 page_number = 2;</code>
+       */
+      public int getPageNumber() {
+        return pageNumber_;
+      }
+      /**
+       * <code>int32 page_number = 2;</code>
+       */
+      public Builder setPageNumber(int value) {
+
+        pageNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 page_number = 2;</code>
+       */
+      public Builder clearPageNumber() {
+
+        pageNumber_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int resultPerPage_ ;
+      /**
+       * <code>int32 result_per_page = 3;</code>
+       */
+      public int getResultPerPage() {
+        return resultPerPage_;
+      }
+      /**
+       * <code>int32 result_per_page = 3;</code>
+       */
+      public Builder setResultPerPage(int value) {
+
+        resultPerPage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 result_per_page = 3;</code>
+       */
+      public Builder clearResultPerPage() {
+
+        resultPerPage_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<Integer> corpus_ =
+        java.util.Collections.emptyList();
+      private void ensureCorpusIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          corpus_ = new java.util.ArrayList<Integer>(corpus_);
+          bitField0_ |= 0x00000008;
+        }
+      }
+      /**
+       * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+       */
+      public java.util.List<Corpus> getCorpusList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            Integer, Corpus>(corpus_, corpus_converter_);
+      }
+      /**
+       * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+       */
+      public int getCorpusCount() {
+        return corpus_.size();
+      }
+      /**
+       * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+       */
+      public SearchRequestProtos.SearchRequest.Corpus getCorpus(int index) {
+        return corpus_converter_.convert(corpus_.get(index));
+      }
+      /**
+       * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+       */
+      public Builder setCorpus(
+          int index, SearchRequestProtos.SearchRequest.Corpus value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCorpusIsMutable();
+        corpus_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+       */
+      public Builder addCorpus(SearchRequestProtos.SearchRequest.Corpus value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCorpusIsMutable();
+        corpus_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+       */
+      public Builder addAllCorpus(
+          Iterable<? extends Corpus> values) {
+        ensureCorpusIsMutable();
+        for (SearchRequestProtos.SearchRequest.Corpus value : values) {
+          corpus_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+       */
+      public Builder clearCorpus() {
+        corpus_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+       */
+      public java.util.List<Integer>
+      getCorpusValueList() {
+        return java.util.Collections.unmodifiableList(corpus_);
+      }
+      /**
+       * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+       */
+      public int getCorpusValue(int index) {
+        return corpus_.get(index);
+      }
+      /**
+       * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+       */
+      public Builder setCorpusValue(
+          int index, int value) {
+        ensureCorpusIsMutable();
+        corpus_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+       */
+      public Builder addCorpusValue(int value) {
+        ensureCorpusIsMutable();
+        corpus_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .cn.zsy.eg.google.protobuf.bean.SearchRequest.Corpus corpus = 4;</code>
+       */
+      public Builder addAllCorpusValue(
+          Iterable<Integer> values) {
+        ensureCorpusIsMutable();
+        for (int value : values) {
+          corpus_.add(value);
+        }
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          String, String> projects_;
+      private com.google.protobuf.MapField<String, String>
+      internalGetProjects() {
+        if (projects_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ProjectsDefaultEntryHolder.defaultEntry);
+        }
+        return projects_;
+      }
+      private com.google.protobuf.MapField<String, String>
+      internalGetMutableProjects() {
+        onChanged();;
+        if (projects_ == null) {
+          projects_ = com.google.protobuf.MapField.newMapField(
+              ProjectsDefaultEntryHolder.defaultEntry);
+        }
+        if (!projects_.isMutable()) {
+          projects_ = projects_.copy();
+        }
+        return projects_;
+      }
+
+      public int getProjectsCount() {
+        return internalGetProjects().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; projects = 5;</code>
+       */
+
+      public boolean containsProjects(
+          String key) {
+        if (key == null) { throw new NullPointerException(); }
+        return internalGetProjects().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getProjectsMap()} instead.
+       */
+      @Deprecated
+      public java.util.Map<String, String> getProjects() {
+        return getProjectsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; projects = 5;</code>
+       */
+
+      public java.util.Map<String, String> getProjectsMap() {
+        return internalGetProjects().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; projects = 5;</code>
+       */
+
+      public String getProjectsOrDefault(
+          String key,
+          String defaultValue) {
+        if (key == null) { throw new NullPointerException(); }
+        java.util.Map<String, String> map =
+            internalGetProjects().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; projects = 5;</code>
+       */
+
+      public String getProjectsOrThrow(
+          String key) {
+        if (key == null) { throw new NullPointerException(); }
+        java.util.Map<String, String> map =
+            internalGetProjects().getMap();
+        if (!map.containsKey(key)) {
+          throw new IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearProjects() {
+        internalGetMutableProjects().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; projects = 5;</code>
+       */
+
+      public Builder removeProjects(
+          String key) {
+        if (key == null) { throw new NullPointerException(); }
+        internalGetMutableProjects().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @Deprecated
+      public java.util.Map<String, String>
+      getMutableProjects() {
+        return internalGetMutableProjects().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; projects = 5;</code>
+       */
+      public Builder putProjects(
+          String key,
+          String value) {
+        if (key == null) { throw new NullPointerException(); }
+        if (value == null) { throw new NullPointerException(); }
+        internalGetMutableProjects().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; projects = 5;</code>
+       */
+
+      public Builder putAllProjects(
+          java.util.Map<String, String> values) {
+        internalGetMutableProjects().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cn.zsy.eg.google.protobuf.bean.SearchRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:cn.zsy.eg.google.protobuf.bean.SearchRequest)
+    private static final SearchRequestProtos.SearchRequest DEFAULT_INSTANCE;
     static {
-        String[] descriptorData = {
-            "\n\023searchrequest.proto\022\036cn.zsy.eg.google." +
-                "protobuf.bean\"\356\001\n\rSearchRequest\022\r\n\005query" +
-                "\030\001 \001(\t\022\023\n\013page_number\030\002 \001(\005\022\027\n\017result_pe" +
-                "r_page\030\003 \001(\005\022D\n\006corpus\030\004 \003(\01624.cn.zsy.eg" +
-                ".google.protobuf.bean.SearchRequest.Corp" +
-                "us\"Z\n\006Corpus\022\r\n\tUNIVERSAL\020\000\022\007\n\003WEB\020\001\022\n\n\006" +
-                "IMAGES\020\002\022\t\n\005LOCAL\020\003\022\010\n\004NEWS\020\004\022\014\n\010PRODUCT" +
-                "S\020\005\022\t\n\005VIDEO\020\006B5\n\036cn.zsy.eg.google.proto" +
-                "buf.beanB\023SearchRequestProtosb\006proto3"
-        };
-        com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-            new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-                public com.google.protobuf.ExtensionRegistry assignDescriptors(
-                    com.google.protobuf.Descriptors.FileDescriptor root) {
-                    descriptor = root;
-                    return null;
-                }
-            };
-        com.google.protobuf.Descriptors.FileDescriptor
-            .internalBuildGeneratedFileFrom(descriptorData,
-                new com.google.protobuf.Descriptors.FileDescriptor[]{
-                }, assigner);
-        internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-        internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-            internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor,
-            new String[]{"Query", "PageNumber", "ResultPerPage", "Corpus",});
+      DEFAULT_INSTANCE = new SearchRequestProtos.SearchRequest();
     }
 
-    // @@protoc_insertion_point(outer_class_scope)
+    public static SearchRequestProtos.SearchRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SearchRequest>
+        PARSER = new com.google.protobuf.AbstractParser<SearchRequest>() {
+      public SearchRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new SearchRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SearchRequest> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<SearchRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public SearchRequestProtos.SearchRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor;
+  private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_ProjectsEntry_descriptor;
+  private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_ProjectsEntry_fieldAccessorTable;
+
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    String[] descriptorData = {
+      "\n\023searchrequest.proto\022\036cn.zsy.eg.google." +
+      "protobuf.bean\"\356\002\n\rSearchRequest\022\r\n\005query" +
+      "\030\001 \001(\t\022\023\n\013page_number\030\002 \001(\005\022\027\n\017result_pe" +
+      "r_page\030\003 \001(\005\022D\n\006corpus\030\004 \003(\01624.cn.zsy.eg" +
+      ".google.protobuf.bean.SearchRequest.Corp" +
+      "us\022M\n\010projects\030\005 \003(\0132;.cn.zsy.eg.google." +
+      "protobuf.bean.SearchRequest.ProjectsEntr" +
+      "y\032/\n\rProjectsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
+      "\030\002 \001(\t:\0028\001\"Z\n\006Corpus\022\r\n\tUNIVERSAL\020\000\022\007\n\003W" +
+      "EB\020\001\022\n\n\006IMAGES\020\002\022\t\n\005LOCAL\020\003\022\010\n\004NEWS\020\004\022\014\n",
+      "\010PRODUCTS\020\005\022\t\n\005VIDEO\020\006B5\n\036cn.zsy.eg.goog" +
+      "le.protobuf.beanB\023SearchRequestProtosb\006p" +
+      "roto3"
+    };
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        }, assigner);
+    internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor,
+        new String[] { "Query", "PageNumber", "ResultPerPage", "Corpus", "Projects", });
+    internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_ProjectsEntry_descriptor =
+      internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_descriptor.getNestedTypes().get(0);
+    internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_ProjectsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cn_zsy_eg_google_protobuf_bean_SearchRequest_ProjectsEntry_descriptor,
+        new String[] { "Key", "Value", });
+  }
+
+  // @@protoc_insertion_point(outer_class_scope)
 }

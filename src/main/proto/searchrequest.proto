@@ -19,4 +19,6 @@ message SearchRequest {
         VIDEO = 6;
     }
     repeated Corpus corpus = 4;
+    map<string, string> projects = 5;
+
 }

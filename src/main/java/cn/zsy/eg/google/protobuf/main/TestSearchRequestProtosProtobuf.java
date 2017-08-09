@@ -10,6 +10,8 @@ public class TestSearchRequestProtosProtobuf {
             .setQuery("query")
             .setPageNumber(1234567)
             .setResultPerPage(2)
+            .putProjects("name", "xxxx")
+            .putProjects("old", "13")
             .addCorpus(SearchRequestProtos.SearchRequest.Corpus.WEB)
             .addCorpus(SearchRequestProtos.SearchRequest.Corpus.NEWS)
             .build();
@@ -17,6 +19,7 @@ public class TestSearchRequestProtosProtobuf {
         byte[] bytes = searchRequest.toByteArray();
         SearchRequestProtos.SearchRequest addressBook = SearchRequestProtos.SearchRequest.parseFrom(bytes);
         System.out.println(addressBook.toString());
+        System.out.println(addressBook.getProjectsMap().toString());
 
     }
 
