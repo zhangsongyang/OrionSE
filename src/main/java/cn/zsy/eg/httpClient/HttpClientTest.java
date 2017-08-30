@@ -184,6 +184,9 @@ public class HttpClientTest {
     public static void main(String[] args) {
         HttpClientTest httpClientTest = new HttpClientTest();
         httpClientTest.get();
+        HttpClientUtils httpClientUtils = new HttpClientUtils();
+        ResponseBean responseBean = httpClientUtils.post("https://www.baidu.com/");
+        System.out.println(responseBean.toString());
     }
 
 }

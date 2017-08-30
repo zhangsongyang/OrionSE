@@ -36,8 +36,6 @@ import java.util.Map.Entry;
 
 /**
  * HttpClient的工具类,基于httpclient-4.5.1.jar
- *
- * @author liujiawei
  */
 public class HttpClientUtils implements RestClientService {
 
