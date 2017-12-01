@@ -5,34 +5,14 @@ import java.util.concurrent.Executors;
 
 public class SingleThread {
 
-  public static void main(String[] args) {
-    ExecutorService executorService = Executors.newSingleThreadExecutor();
+    public static void main(String[] args) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-    executorService.execute(new Runnable() {
-      @Override
-      public void run() {
-        System.out.println("Asynchronous task 1..");
-      }
-    });
+        executorService.execute(() -> System.out.println("Asynchronous task 1.."));
+        executorService.execute(() -> System.out.println("Asynchronous task 3.."));
+        executorService.execute(() -> System.out.println("Asynchronous task 2.."));
 
-    executorService.execute(new Runnable() {
-      @Override
-      public void run() {
-        System.out.println("Asynchronous task 3..");
-      }
-    });
-
-
-    executorService.execute(new Runnable() {
-      @Override
-      public void run() {
-        System.out.println("Asynchronous task 2..");
-      }
-    });
-
-
-
-    executorService.shutdown();
-  }
+        executorService.shutdown();
+    }
 
 }
