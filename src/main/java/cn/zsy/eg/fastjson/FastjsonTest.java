@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -71,7 +72,8 @@ public class FastjsonTest {
         jsonArray.add("asdfsadtt");
         System.out.println(jsonArray.toString());
         System.out.println(jsonArray.getString(2));
-
+        String[] ss1 = jsonArray.toArray(new String[0]);
+        System.out.println("##############" + ss1[2]);
         Map<String, String[]> params = new HashMap<String, String[]>();
         String[] ss = {"11", "22", "33"};
         params.put("aa", ss);

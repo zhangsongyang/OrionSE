@@ -39,7 +39,7 @@ public class CalendarDemo {
         System.out.println(getDate);   //输出2011-07-24 09:59:50;
 
         //比较日前大小;
-        if (new Date().getTime() > calendar.getTimeInMillis()) {
+        if (System.currentTimeMillis() > calendar.getTimeInMillis()) {
             System.out.println("当前日期在后!");
         } else {
             System.out.println("当前日期在前!");

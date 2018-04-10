@@ -2,12 +2,7 @@ package cn.zsy.util;
 
 import java.util.Random;
 
-/**
- * 随机数工具类
- * @Project:JUtils
- * @file:RandomUtils.java
- * @Authro:chenssy(感谢作者)
- */
+
 public class RandomUtils {
 
     private static final String ALL_CHAR = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -87,6 +82,7 @@ public class RandomUtils {
         Random random = new Random();
         int number = random.nextInt(upperLimit);
         return number;
+
     }
 
 }

@@ -1,5 +1,7 @@
 package cn.zsy.util;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 import java.util.Random;
 
 /**
@@ -25,10 +27,11 @@ public class RandomUtil {
 
 
     public static void main(String[] args) {
-        for(int i=0; i<10; i++){
-            String str = getRandom(12);
-            System.out.println(str);
-        }
+//        for(int i=0; i<10; i++){
+//            String str = getRandom(4);
+//            System.out.println(str);
+//        }
+        System.out.println(RandomStringUtils.randomAlphanumeric(11));
     }
 
 }

@@ -1,12 +1,22 @@
 package cn.zsy;
 
+import cn.zsy.eg.spring.beans.Car;
+import cn.zsy.util.AESEncrypterApache;
 import cn.zsy.util.DateUtil;
 import cn.zsy.util.DateUtilThree;
 import cn.zsy.util.HttpUtil;
+import cn.zsy.vo.RegisterProduct;
+import cn.zsy.vo.RegisterProductBean;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.notnoop.apns.APNS;
 import com.notnoop.apns.ApnsService;
 import org.apache.commons.collections.CollectionUtils;
@@ -18,8 +28,11 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Test;
+import org.springframework.beans.BeanUtils;
 
 import java.io.*;
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.text.ParseException;
@@ -188,7 +201,6 @@ public class MarryTest {
     }
 
 
-
     @Test
     public void marray12() {
         int j = 0;
@@ -297,20 +309,20 @@ public class MarryTest {
     @Test
     public void marry17() {
         String str = "[\n" +
-                "            {\n" +
-                "              \"ques_id\": 1,\n" +
-                "              \"ans_id\": [\n" +
-                "                1,\n" +
-                "                2\n" +
-                "              ]\n" +
-                "            },\n" +
-                "            {\n" +
-                "              \"ques_id\": 2,\n" +
-                "              \"ans_id\": [\n" +
-                "                1\n" +
-                "              ]\n" +
-                "            }\n" +
-                "          ]";
+            "            {\n" +
+            "              \"ques_id\": 1,\n" +
+            "              \"ans_id\": [\n" +
+            "                1,\n" +
+            "                2\n" +
+            "              ]\n" +
+            "            },\n" +
+            "            {\n" +
+            "              \"ques_id\": 2,\n" +
+            "              \"ans_id\": [\n" +
+            "                1\n" +
+            "              ]\n" +
+            "            }\n" +
+            "          ]";
         JSONArray jsonObject = JSON.parseArray(str);
         for (int i = 0; i < jsonObject.size(); i++) {
             JSONObject jsonObject1 = jsonObject.getJSONObject(i);
@@ -469,7 +481,7 @@ public class MarryTest {
         System.out.println(a);
         System.out.println(b);
         System.out.println(
-                StringUtils.isNotBlank("    ")
+            StringUtils.isNotBlank("    ")
         );
         System.out.println(StringUtils.split("2017-01", "-")[0]);
         System.out.println(StringUtils.split("2017-01", "-")[1]);
@@ -519,32 +531,32 @@ public class MarryTest {
     @Test
     public void marry29() {
         String json = "{\n" +
-                "  \"question\": [\n" +
-                "    {\n" +
-                "      \"qid\": \"1\",\n" +
-                "      \"answer\": [\n" +
-                "        \"C\",\n" +
-                "        \"B\"\n" +
-                "      ]\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"qid\": \"2\",\n" +
-                "      \"answer\": [\n" +
-                "        \"A\"\n" +
-                "      ]\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"qid\": \"3\",\n" +
-                "      \"answer\": [\n" +
-                "        \"C\"\n" +
-                "      ]\n" +
-                "    }\n" +
-                "  ],\n" +
-                "  \"accountId\": 153174827,\n" +
-                "  \"userType\": 1,\n" +
-                "  \"area\": \"cs\",\n" +
-                "  \"userId\": 104702807\n" +
-                "}";
+            "  \"question\": [\n" +
+            "    {\n" +
+            "      \"qid\": \"1\",\n" +
+            "      \"answer\": [\n" +
+            "        \"C\",\n" +
+            "        \"B\"\n" +
+            "      ]\n" +
+            "    },\n" +
+            "    {\n" +
+            "      \"qid\": \"2\",\n" +
+            "      \"answer\": [\n" +
+            "        \"A\"\n" +
+            "      ]\n" +
+            "    },\n" +
+            "    {\n" +
+            "      \"qid\": \"3\",\n" +
+            "      \"answer\": [\n" +
+            "        \"C\"\n" +
+            "      ]\n" +
+            "    }\n" +
+            "  ],\n" +
+            "  \"accountId\": 153174827,\n" +
+            "  \"userType\": 1,\n" +
+            "  \"area\": \"cs\",\n" +
+            "  \"userId\": 104702807\n" +
+            "}";
         JSONObject jsonObject = JSON.parseObject(json);
         System.out.println(jsonObject.toString());
         JSONArray jsonArray = (JSONArray) jsonObject.get("question");
@@ -557,7 +569,7 @@ public class MarryTest {
             }
             Arrays.sort(str);
             StringBuilder stb = new StringBuilder();
-            for(String s : str){
+            for (String s : str) {
                 stb.append(s);
             }
             System.out.println(stb.toString());
@@ -574,6 +586,407 @@ public class MarryTest {
 //                .withAppleDestination(true).withConnectTimeout(4000)
 //                .build();
 //        apnsService.start();
+
+    }
+
+    @Test
+    public void marry30() throws IllegalAccessException {
+        Car car = new Car();
+        car.setColord("red");
+        car.setNumber("100000");
+        Field[] fields = car.getClass().getDeclaredFields();
+        AccessibleObject.setAccessible(fields, true);
+        for (Field field : fields) {
+            String fieldName = field.getName();
+            String fieldType = field.getType().toString();
+            String value = (String) field.get(car);
+            System.out.println(fieldName + "   " + fieldType + "   " + value);
+        }
+    }
+
+    @Test
+    public void marry31() {
+        Set<String> stringSet = Sets.newHashSet();
+        stringSet.add("v3.3");
+        stringSet.add("v3.2.2");
+        stringSet.add("v3.1.0");
+        stringSet.add("v3.1.0");
+        stringSet.add("v3.1.0");
+        stringSet.add("v3.1.0");
+        stringSet.add("v3.5");
+        stringSet.add("v3.4.0");
+        stringSet = null;
+        ImmutableSet setCopy = ImmutableSet.copyOf(stringSet);
+        System.out.println("-->" + setCopy.contains("v3.4"));
+    }
+
+    @Test
+    public void marry32() {
+        String latestVersion = "3.4.0";
+        String version = "3.5";
+        System.out.println(latestVersion.compareToIgnoreCase(version));
+        String[] latestVersionArray = latestVersion.trim().split("\\.");
+        String[] tempVersionArray = version.split("\\.");
+        // V2.2新增接口 不用考虑老的带（）
+        boolean needVersion = false;
+        for (int i = 0; i < 3; i++) {
+            int tempfix = 0;
+            int latestfix = 0;
+            tempfix = Integer.parseInt(tempVersionArray[i]);
+            latestfix = Integer.parseInt(latestVersionArray[i]);
+            if (tempfix > latestfix) {
+                needVersion = false;
+                break;
+            } else if (tempfix < latestfix) {
+                needVersion = true;
+                break;
+            } else {
+                // 当循环到最后时,仍然是相等的,则表示不需要升级版本.
+                if (i >= 2) {
+                    needVersion = false;
+                    break;
+                }
+            }
+        }
+        System.out.println(needVersion);
+        System.out.println(StringUtils.equalsIgnoreCase("3.4", "3.2"));
+        System.out.println("3.2".compareToIgnoreCase("3.6") < 0);
+    }
+
+    @Test
+    public void marry33() {
+//        System.out.println("3.4".compareToIgnoreCase("3.4.0") < 0);
+//        String modeStr = StringUtils.join(new String[]{"aa", "bb", "cc", "dd"}, ".");
+//        System.out.println(modeStr);
+        List<String> modelList = Lists.newArrayList();
+        System.out.println(CollectionUtils.isEmpty(ImmutableList.copyOf(modelList)));
+        ImmutableList<String> str = ImmutableList.copyOf(modelList);
+        for (String s : str) {
+            System.out.println(s);
+        }
+        String modeStr = StringUtils.join(str.toArray(), ".");
+        System.out.println("--->" + modeStr + "<---");
+
+
+    }
+
+    @Test
+    public void marry34() throws Exception {
+        System.out.println(compareVersion("3.41.0", "3.21.7"));
+    }
+
+    /**
+     * 比较版本号的大小,前者大则返回一个正数,后者大返回一个负数,相等则返回0
+     *
+     * @param version1
+     * @param version2
+     * @return
+     */
+    public static int compareVersion(String version1, String version2) throws Exception {
+        if (version1 == null || version2 == null) {
+            throw new Exception("compareVersion error:illegal params.");
+        }
+        String[] versionArray1 = version1.split("\\.");//注意此处为正则匹配，不能用"."；
+        String[] versionArray2 = version2.split("\\.");
+        int idx = 0;
+        int minLength = Math.min(versionArray1.length, versionArray2.length);//取最小长度值
+        int diff = 0;
+        while (idx < minLength
+            && (diff = versionArray1[idx].length() - versionArray2[idx].length()) == 0//先比较长度
+            && (diff = versionArray1[idx].compareTo(versionArray2[idx])) == 0) {//再比较字符
+            diff = versionArray1[1].compareTo(versionArray2[1]);
+            ++idx;
+        }
+        //如果已经分出大小，则直接返回，如果未分出大小，则再比较位数，有子版本的为大；
+        diff = (diff != 0) ? diff : versionArray1.length - versionArray2.length;
+        return diff;
+    }
+
+    @Test
+    public void marry35() {
+        RoomLocaltionInfo roomLocaltionInfo = new RoomLocaltionInfo();
+        roomLocaltionInfo.setDeviceId("11");
+        roomLocaltionInfo.setRoom("22");
+        roomLocaltionInfo.setUserId("3333");
+        System.out.println("1. " + JSONObject.toJSONString(roomLocaltionInfo));
+        System.out.println("2. " + JSON.toJSONString(roomLocaltionInfo));
+        JSONObject requestJSON = new JSONObject();
+        requestJSON.put("shareDev", JSON.toJSON(roomLocaltionInfo));
+        System.out.println(requestJSON.toJSONString());
+        System.out.println("0.1".concat(".1"));
+        String uTraceId = null;
+        roomLocaltionInfo.setUserId(org.apache.commons.lang3.StringUtils.replace(uTraceId, "-", ""));
+        org.apache.commons.lang3.StringUtils.replace(uTraceId, "-", "");
+        System.out.println(roomLocaltionInfo);
+        uTraceId = "";
+        org.apache.commons.lang3.StringUtils.replace(uTraceId, "-", "");
+
+        String uSpanId = "";
+        System.out.println(uSpanId.concat(".1"));
+
+
+        List<String> uTraceEntityList = Lists.newArrayList();
+        if (uTraceEntityList.size() > 0) {
+
+            System.out.println("---");
+        } else {
+            System.out.println("000");
+        }
+        System.out.println(UUID.randomUUID().toString());
+    }
+
+    @Test
+    public void marry36() {
+        RoomLocaltionInfo roomLocaltionInfo = new RoomLocaltionInfo();
+        roomLocaltionInfo.setDeviceId("11");
+        roomLocaltionInfo.setRoom("22");
+        roomLocaltionInfo.setUserId("3333");
+        RoomLocaltionInfo roomLocaltionInfo1 = new RoomLocaltionInfo();
+        roomLocaltionInfo1.setDeviceId("11");
+        roomLocaltionInfo1.setRoom("22");
+        roomLocaltionInfo1.setUserId("3333");
+        List<RoomLocaltionInfo> roomLocaltionInfos = new ArrayList<>();
+        roomLocaltionInfos.add(roomLocaltionInfo);
+        roomLocaltionInfos.add(roomLocaltionInfo1);
+        System.out.println("1. " + JSON.toJSONString(roomLocaltionInfos));
+        roomLocaltionInfo.setUserId(null);
+    }
+
+    @Test
+    public void marry37() {
+//        HashMap<String, String> hm = new HashMap<String, String>();
+//        hm.put("111", "222");
+//        Set<Map.Entry<String, String>> entrySet = hm.entrySet();
+//        Iterator<Map.Entry<String, String>> iter = entrySet.iterator();
+//        while (iter.hasNext()) {
+//            Map.Entry<String, String> entry = iter.next();
+//            System.out.println(entry.getKey() + "\t" + entry.getValue());
+//        }
+//        System.out.println(UUID.randomUUID());
+//        Preconditions.checkNotNull(null,
+//            "nameUri (%s) doesn't have an authority");
+        String res = "111";
+        String ss = (res == null || StringUtils.isEmpty(res)) ? "-1" : res.equals("1") ? "00000" : res;
+        System.out.println(ss);
+        System.out.println(new Date().getTime());
+        System.out.println(System.currentTimeMillis());
+
+    }
+
+    @Test
+    public void marry38() {
+        RegisterProductBean registerProductBean = new RegisterProductBean();
+        RegisterProduct registerProduct = new RegisterProduct();
+        registerProductBean.setBrandName("111");
+        registerProductBean.setMac("2222222");
+        registerProductBean.setProductName("asdf");
+        registerProductBean.setRegTime("123123");
+        registerProductBean.setSkuCode("asdf");
+        registerProductBean.setUserId(366L);
+        BeanUtils.copyProperties(registerProductBean, registerProduct);
+        System.out.println(registerProduct.toString());
+        System.out.println(registerProduct.getMobile());
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 重要
+     * @throws IOException
+     */
+    @Test
+    public void marry39() throws IOException {
+        List<String> list = FileUtils.readLines(
+            new File("D:\\code\\github\\OrionSE\\src\\main\\resources\\1111.txt"));
+        System.out.println(list.size());
+        StringBuffer sb = new StringBuffer();
+        List<String> outList = Lists.newArrayList();
+        int seg = 20;
+        double dd = (double) list.size() / seg;
+        double line = Math.ceil(dd);
+        for (int i = 1; i <= line; i++) {
+            for (int j = (i * seg - seg); j < i * seg; j++) {
+                if (j < list.size()) {
+                    String str = list.get(j);
+                    sb.append(str);
+                    if ((double) (j + 1) % seg != 0 && (j != list.size() - 1)) {
+                        sb.append(";");
+                    }
+                }
+            }
+            outList.add(sb.toString());
+            sb.setLength(0);
+        }
+        FileUtils.writeLines(
+            new File("D:\\code\\github\\OrionSE\\src\\main\\resources\\sqlCode22.txt"), outList);
+
+    }
+
+
+    @Test
+    public void marry40() {
+        List features = Arrays.asList("Lambdas", "Default Method", "Stream API", "Date and Time API");
+        features.forEach(n -> System.out.println(n));
+        System.out.println("----------");
+//        System.out.println("#############");
+// 使用Java 8的方法引用更方便，方法引用由::双冒号操作符标示，
+// 看起来像C++的作用域解析运算符
+        features.forEach(System.out::println);
+
+        System.out.println("11   1c120024000810      21 01 0540000275000000 0000 00 0000000000000000 00 00      00".length());
+        System.out.println("11   1c120024000810      01 01 0061800245410000 0000 00 0061800246000000 00 00      00".length());  //冰箱
+        System.out.println("11   1c120024000810      0b 04 0244000066000000 0000 00 0000000000000000 00 00      00".length());  // 消毒柜
+        System.out.println("11   1c120024000810      1d 01 0220800602000000 0000 00 0000000000000000 00 00      00".length());  //灶具
+        System.out.println("11   1c120024000810      04 01 0031800138470000 0000000000000000000000000000".length());  //灶具
+        System.out.println(" 0          0000000      00000000808000000004141 0");
+
+//        "21 01 0540000275000000000000000000000000000000002101054000027500000000000000000000000000000000"
+
+//        "U-ACD"
+
+    }
+
+
+    @Test
+    public void marry41() {
+        List features = Arrays.asList("Lambdas", "Default Method", "Stream API", "Date and Time API");
+        features.forEach(n -> System.out.println(n));
+        System.out.println("----------");
+        features.forEach(System.out::println);
+    }
+
+    @Test
+    public void marry42() {
+        String ss5 = "0007A8E1DC49";
+        System.out.println(ss5.hashCode() % 8);
+        String keepAlex = CharMatcher.anyOf("alex").retainFrom("a");
+        System.out.println(keepAlex);
+        System.out.println(Math.abs(-1));
+
+    }
+
+    public int hoursOfDay() {
+        Random random = new Random();
+        int a = random.nextInt(23);
+        int b = (a < 7) ? a + 7 : a;
+        return b;
+    }
+
+
+//    @Test
+    public String marry43() {
+        Random random = new Random();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2017,
+            random.nextInt(11) + 1,
+            random.nextInt(28) + 1,
+            hoursOfDay(),
+            random.nextInt(60),
+            random.nextInt(60));
+        SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String getDate = date_format.format(calendar.getTime());
+        if(StringUtils.contains(getDate, "-12-")){
+            String day = getDate.substring(8, 10);
+            if(Integer.valueOf(day) >15){
+                getDate = getDate.replaceFirst("-" + String.valueOf(day), "-10");
+            }
+        }
+        return getDate;
+    }
+
+    @Test
+    public void marry55(){
+
+    }
+
+    String mouth() {
+        Random random = new Random();
+        int a = random.nextInt(12) + 1;
+        System.out.println(a);
+        if (("" + a).length() == 1) {
+            return "0" + a;
+        }
+        return String.valueOf(a);
+    }
+
+
+    public String day() {
+        Random random = new Random();
+        int a = random.nextInt(28) + 1;
+        if (("" + a).length() == 1) {
+            return "0" + a;
+        }
+        return String.valueOf(a);
+    }
+
+
+    public String hours() {
+        Random random = new Random();
+        int a = random.nextInt(23);
+        int b = (a < 7) ? a + 7 : a;
+
+        if (("" + b).length() == 1) {
+            return "0" + b;
+        }
+        return String.valueOf(b);
+    }
+
+    public String min() {
+        Random random = new Random();
+        int a = random.nextInt(60);
+        if (("" + a).length() == 1) {
+            return "0" + a;
+        }
+        return String.valueOf(a);
+    }
+
+
+    @Test
+    public void marry45() {
+//        for (int i = 0; i < 100; i++) {
+//            System.out.println("--" + marry43());
+//        }
+//        "CsadfBAK8001700".hashCode() % 8
+        System.out.println("CBAasdfK800sdfgsdfg1700".hashCode() % 8);
+    }
+
+    @Test
+    public void marry46(){
+        String ss = "2017-11-01";
+        String s1 = "2017-10-22";
+        System.out.println(s1.compareTo(ss));
+
+        String[] array = {"asdfsdf", "wwww", "2222"};
+        String aa = StringUtils.join(array, ",");
+        System.out.println(aa);
+        System.out.println(aa.split(","));
+        String[] ss1 = StringUtils.split(aa, ",");
+        System.out.println(Arrays.toString(ss1));
+        Map<String, String> map = new HashMap<>();
+        map.put("asdf", null);
+
+
+//        System.out.println(StringUtils.stripEnd(
+//            StringUtils.stripStart(Arrays.toString(array), "["), "]"));
+    }
+
+    @Test
+    public void marry47(){
+        double dd = 0;
+        int total = 1459;
+        int count = 5;
+        int d = total / count;
+        System.out.println(d);
+        Long aa = 111L;
+        System.out.println(JSON.toJSONString(aa));
+
+        long millis = 1324138987429L;
+        Date date = new Date(millis);
+        System.out.println(JSON.toJSONString(date));
+
 
     }
 

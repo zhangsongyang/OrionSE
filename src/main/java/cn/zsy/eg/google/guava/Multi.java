@@ -28,7 +28,7 @@ public class Multi {
         System.out.println(multiset.entrySet());
         System.out.println(strings.length);
         System.out.println(multiset.size());
-
+        System.out.println("---->" + multiset.contains("aa"));
         //Multimap
         System.out.println("multimap.........");
         Multimap<String, Integer> multimap = HashMultimap.create();

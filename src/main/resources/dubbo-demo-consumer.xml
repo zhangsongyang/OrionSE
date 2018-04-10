@@ -9,9 +9,15 @@
 	<dubbo:application name="demo-consumer"  />
 
 	<!-- 使用zookeeper广播注册中心暴露发现服务地址 -->
-	<dubbo:registry address="zookeeper://52.41.86.234:2181" />
+	<dubbo:registry address="zookeeper://34.211.79.31:2181" />
+
+	<bean id ="demoCallback" class = "cn.zsy.eg.dubbo.dubboConsumer.NotifyImpl" />
 
 	<!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
-	<dubbo:reference id="demoService" check="false" interface="cn.zsy.eg.dubbo.dubboApi.DemoService" />
+	<dubbo:reference id="demoService" check="false" interface="cn.zsy.eg.dubbo.dubboApi.DemoService">
+		<!--<dubbo:method name="sayHello" async="true" onreturn = "demoCallback.onreturn"-->
+					  <!--onthrow="demoCallback.onthrow" />-->
+		<dubbo:method name="sayHello" async="true"  return="false"/>
+	</dubbo:reference>
 
 </beans>
