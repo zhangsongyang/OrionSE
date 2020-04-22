@@ -57,7 +57,7 @@ public class AppTest
 //        }
 
         //\xb0\xae\xc6\xe6\xd2\xd5PPS\xd3\xb0\xd2\xf4%20(\xce\xb4\xcf\xec\xd3\xa6)
-
+        System.out.println("http://el.bbqk.com/abz1v/0.html".length());
         System.out.println(URLDecoder.decode("\\xb0\\xae\\xc6\\xe6\\xd2\\xd5PPS\\xd3\\xb0\\xd2\\xf4%20(\\xce\\xb4\\xcf\\xec\\xd3\\xa6", "utf-8"));
         System.out.println(URLEncoder.encode("张"));
 
